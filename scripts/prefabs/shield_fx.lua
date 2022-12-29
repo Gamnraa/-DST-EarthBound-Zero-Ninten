@@ -12,21 +12,16 @@ local function fn()
     local inst = CreateEntity()
 	
     inst.entity:AddTransform()
-    inst.entity:AddNetwork()
 	inst.entity:AddSoundEmitter()
 	inst.entity:AddAnimState()
 	inst.AnimState:SetBank("shield_fx")
     inst.AnimState:SetBuild("shield_fx")
 	inst.AnimState:PlayAnimation("anim")
     inst.AnimState:PushAnimation("idle_loop", true)
+	inst:AddTag("FX")
 	
 	inst:DoTaskInTime(0, function() inst.SoundEmitter:PlaySound("psishield/psishield/shieldhit") end)
 
-    inst.entity:SetPristine()
-
-    if not TheWorld.ismastersim then
-        return inst
-    end
 	
 	inst.kill_fx = killFX
     return inst

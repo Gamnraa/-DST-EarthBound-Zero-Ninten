@@ -23,7 +23,6 @@ return {
         {
             MOUNTED = "No way am I reaching that.",
             HASPET = "I've already got a pet.",
-			TICOON = "I got my own fat cat.",													   
         },
 		SHAVE =
 		{
@@ -51,7 +50,7 @@ return {
 		{	
 			GENERIC = "Nah.",
 			INUSE = "Think I'd like to respect their personal space.",
-            NOTMASTERCHEF = "I have no idea how to cook, to be frank.",
+            NOTMASTERCHEF = "I have no idea who to cook, to be frank.",
 		},
 		UNLOCK =
         {
@@ -63,17 +62,9 @@ return {
         	KLAUS = "UMMMMMM...",
 			QUAGMIRE_WRONGKEY = "Damn, wrong key!",
         },
-		ACTIVATE = 	 
+		ACTIVATE = 
 		{
 			LOCKED_GATE = "Locked.",
-			HOSTBUSY = "Hurry it up, will ya?",
-            CARNIVAL_HOST_HERE = "Oh, there he is.",
-            NOCARNIVAL = "He's not gonna show up. Whatever.",						   
-		},
-		OPEN_CRAFTING =
-		{
-            PROFESSIONALCHEF = "I just let mom do the cooking.",
-			SHADOWMAGIC = "That's not science.",
 		},
         COOK =
         {
@@ -113,11 +104,11 @@ return {
             DEAD = "Um. That's a dead body.",
             SLEEPING = "I'll bother them when they wake up.",
             BUSY = "I'll bother them later.",
-            ABIGAILHEART = "Can't blame me for thinking outside the box.",
+            ABIGAILHEART = "It was worth a shot.",
             GHOSTHEART = "Maybe this is a bad idea.",
             NOTGEM = "Let's not do that, Ninten.",
-            WRONGGEM = "That's not doing anything.",
-            NOTSTAFF = "It... won't... fit!",
+            WRONGGEM = "This gem won't work here.",
+            NOTSTAFF = "It's not quite the right shape.",
             MUSHROOMFARM_NEEDSSHROOM = "I think I need a mushroom.",
             MUSHROOMFARM_NEEDSLOG = "I need those living log things, right?",
             MUSHROOMFARM_NOMOONALLOWED = "I can't plant these right now.",
@@ -126,20 +117,13 @@ return {
             NOTDISH = "Nah, nah, can't feed it that.",
             DUPLICATE = "I already know that one.",
             NOTSCULPTABLE = "I have no clue how to make that into a sculpture.",
-            NOTATRIUMKEY = "That's not it.",
+            NOTATRIUMKEY = "It's not quite the right shape.",
             CANTSHADOWREVIVE = "I can't bring that back.",
             WRONGSHADOWFORM = "That's not right.",
             NOMOON = "I need to see the moon for that to work.",
 			PIGKINGGAME_MESSY = "I need to clean up first.",
-			PIGKINGGAME_DANGER = "I got some friends to deal with first.",
+			PIGKINGGAME_DANGER = "It's too dangerous for that right now.",
 			PIGKINGGAME_TOOLATE = "It's too late for that now.",
-			CARNIVALGAME_INVALID_ITEM = "Outta tokens.",
-			CARNIVALGAME_ALREADY_PLAYING = "It's already on, Ninten.",
-            SPIDERNOHAT = "I am NOT picking you up.",
-            TERRARIUM_REFUSE = "You don't want that? Tch. Picky eater.",
-            TERRARIUM_COOLDOWN = "It's lost its power.",
-            NOTAMONKEY = "I have no idea what you want.",
-            QUEENBUSY = "I'll bother her later.",																									   
         },
         GIVETOPLAYER =
         {
@@ -184,7 +168,6 @@ return {
         {
             TARGETINCOMBAT = "Now seems like a bad time to try to get on that thing.",
             INUSE = "Ah. Someone's riding it already.",
-			SLEEPING = "Hey, get up!",
         },
         SADDLE =
         {
@@ -201,7 +184,6 @@ return {
 			
 			--MapSpotRevealer/messagebottle
 			MESSAGEBOTTLEMANAGER_NOT_FOUND = "I can't make anything out in this lighting!",--Likely trying to read messagebottle treasure map in caves
-			STASH_MAP_NOT_FOUND = "There's no X. What kind of stupid treasure map is this?!",-- Likely trying to read stash map  in world without stash
         },
         WRAPBUNDLE =
         {
@@ -211,13 +193,11 @@ return {
         {
 			RESTRICTION = "I'm not skilled enough to use that.",
 			INUSE = "Someone's got it covered.",
-			NOTMINE_SPIDER = "only_used_by_webber",	
             NOTMINE_YOTC =
             {
                 "You're not my Carrat.",
                 "OW, it bit me!",
             },
-			NO_HEAVY_LIFTING = "only_used_by_wanda",
         },
         SLAUGHTER =
         {
@@ -359,33 +339,7 @@ return {
             HUNGRY = "only_used_by_wolfang",
             FULL = "only_used_by_wolfang",
         },			   										
-		APPLYMODULE =
-        {
-            COOLDOWN = "only_used_by_wx78",
-            NOTENOUGHSLOTS = "only_used_by_wx78",
-        },
-        REMOVEMODULES =
-        {
-            NO_MODULES = "only_used_by_wx78",
-        },
-        CHARGE_FROM =
-        {
-            NOT_ENOUGH_CHARGE = "only_used_by_wx78",
-            CHARGE_FULL = "only_used_by_wx78",
-        },
-
-        HARVEST =
-        {
-            DOER_ISNT_MODULE_OWNER = "It doesn't want anything to do with humans.",
-        },
-    },
-
-	ANNOUNCE_CANNOT_BUILD =
-	{
-		NO_INGREDIENTS = "I'm missing something...",
-		NO_TECH = "I don't even understand how to make that.",
-		NO_STATION = "I'm missing some important tools.",
-	},												
+	},
 	ACTIONFAIL_GENERIC = "No can do.",
 	ANNOUNCE_MAGIC_FAIL = "I can't seem to tap into my PSI...",
 	ANNOUNCE_BOAT_LEAK = "Don't panic, but we may have sprung a leak.",
@@ -404,11 +358,6 @@ return {
     ANNOUNCE_NORMALTOWIMPY = "only_used_by_wolfang",
     ANNOUNCE_WIMPYTONORMAL = "only_used_by_wolfang",
     ANNOUNCE_MIGHTYTONORMAL = "only_used_by_wolfang",
-	ANNOUNCE_EXITGYM = {
-        MIGHTY = "only_used_by_wolfang",
-        NORMAL = "only_used_by_wolfang",
-        WIMPY = "only_used_by_wolfang",
-    },												 			
 
 	ANNOUNCE_BEES = "Hey, don't sting me, man!",
 	ANNOUNCE_BOOMERANG = "Ouch! Dang butterfingers!",
@@ -505,7 +454,6 @@ return {
 	ANNOUNCE_NODAYSLEEP_CAVE = "I'm not tired.",
 	ANNOUNCE_NOHUNGERSLEEP = "How about a snack before bed?",
 	ANNOUNCE_NOSLEEPONFIRE = "Uh. Probably should do something about that fire, first.",
-	ANNOUNCE_NOSLEEPHASPERMANENTLIGHT = "only_used_by_wx78",														
 	ANNOUNCE_NODANGERSIESTA = "We can relax after we LIVE!",
 	ANNOUNCE_NONIGHTSIESTA = "Nah, I should sleep at this point.",
 	ANNOUNCE_NONIGHTSIESTA_CAVE = "I don't think I could really relax down here.",
@@ -526,7 +474,7 @@ return {
 	ANNOUNCE_UNIMPLEMENTED = "OW! I don't think it's ready yet.",
 	ANNOUNCE_WORMHOLE = "Where am I now?",
 	ANNOUNCE_TOWNPORTALTELEPORT = "Niiiice, teleportation.",
-	ANNOUNCE_CANFIX = "\nI could probably fix it.",
+	ANNOUNCE_CANFIX = "\nI could probably fix it",
 	ANNOUNCE_ACCOMPLISHMENT = "Who's awesome? Me!",
 	ANNOUNCE_ACCOMPLISHMENT_DONE = "Oh yeah, Ninten!",	
 	ANNOUNCE_INSUFFICIENTFERTILIZER = "Needs more fertilizer.",
@@ -553,8 +501,8 @@ return {
 	ANNOUNCE_GHOSTDRAIN = "Goodbye...",
 	ANNOUNCE_PETRIFED_TREES = "Did that tree... just... scream?",
 	ANNOUNCE_KLAUS_ENRAGE = "Oh God, now it's mad!!",
-	ANNOUNCE_KLAUS_UNCHAINED = "It's still got some bite left!",
-	ANNOUNCE_KLAUS_CALLFORHELP = "Oh, bring it on!",
+	ANNOUNCE_KLAUS_UNCHAINED = "Its chains came off!",
+	ANNOUNCE_KLAUS_CALLFORHELP = "It called for help!",
 
 	ANNOUNCE_MOONALTAR_MINE =
 	{
@@ -690,10 +638,6 @@ return {
         "only_used_by_walter",
 	},
 
-	-- wx specific
-    ANNOUNCE_WX_SCANNER_NEW_FOUND = "only_used_by_wx78",
-    ANNOUNCE_WX_SCANNER_FOUND_NO_DATA = "only_used_by_wx78",			  
-	
     --quagmire event
     QUAGMIRE_ANNOUNCE_NOTRECIPE = "I'm just throwing in ingredients randomly and hope it works, huh?",
     QUAGMIRE_ANNOUNCE_MEALBURNT = "Darnit, I burned my meal!",
@@ -736,9 +680,9 @@ return {
 	ANNOUNCE_WEIGHT = "Weight: {weight}",
 	ANNOUNCE_WEIGHT_HEAVY  = "Weight: {weight}\nI'm a fishing champ!",
 
-
-	ANNOUNCE_WINCH_CLAW_MISS = "Come on Ninten, it's just like this claw games, you're great at this!",
-	ANNOUNCE_WINCH_CLAW_NO_ITEM = "Nothing? Ugh.",
+	-- these are just for testing for now, no need to write real strings yet
+	ANNOUNCE_WINCH_CLAW_MISS = "I think I missed the mark.",
+	ANNOUNCE_WINCH_CLAW_NO_ITEM = "Drat! I've come up empty handed.",
 
     --Wurt announce strings
     ANNOUNCE_KINGCREATED = "only_used_by_wurt",
@@ -794,21 +738,10 @@ return {
     ANNOUNCE_BATTLESONG_INSTANT_TAUNT_BUFF = "only_used_by_wathgrithr",
     ANNOUNCE_BATTLESONG_INSTANT_PANIC_BUFF = "only_used_by_wathgrithr",
 
-	ANNOUNCE_WANDA_YOUNGTONORMAL = "only_used_by_wanda",
-    ANNOUNCE_WANDA_NORMALTOOLD = "only_used_by_wanda",
-    ANNOUNCE_WANDA_OLDTONORMAL = "only_used_by_wanda",
-    ANNOUNCE_WANDA_NORMALTOYOUNG = "only_used_by_wanda",
-	ANNOUNCE_POCKETWATCH_PORTAL = "It's like, 4D Slip, but cooler.",
-	
-	ANNOUNCE_POCKETWATCH_MARK = "only_used_by_wanda",
-	ANNOUNCE_POCKETWATCH_RECALL = "only_used_by_wanda",
-	ANNOUNCE_POCKETWATCH_OPEN_PORTAL = "only_used_by_wanda",
-	ANNOUNCE_POCKETWATCH_OPEN_PORTAL_DIFFERENTSHARD = "only_used_by_wanda",
-	
+	ANNOUNCE_POCKETWATCH_PORTAL = "It's like, 4D Slip, but cooler.",																							
     ANNOUNCE_ARCHIVE_NEW_KNOWLEDGE = "Wow, so interesting!",
     ANNOUNCE_ARCHIVE_OLD_KNOWLEDGE = "I already knew that.",
     ANNOUNCE_ARCHIVE_NO_POWER = "Maybe it needs more juice.",
-
 
     ANNOUNCE_PLANT_RESEARCHED =
     {
@@ -832,35 +765,9 @@ return {
         "Grow, darn it, grow!",
 		"Hurry, hurry!",
         "Hey, no shirking your work! Come on, grow!",
-        "Grow plant, grow!",					   
+        "Grow plant, grow!",
 	},
 
-	ANNOUNCE_KITCOON_HIDEANDSEEK_START = "3, 2, 1... Ready or not, here I come!",
-	ANNOUNCE_KITCOON_HIDEANDSEEK_JOIN = "Aww, they're playing hide and seek.",
-	ANNOUNCE_KITCOON_HIDANDSEEK_FOUND =
-	{
-		"Found you!",
-		"There you are.",
-		"I knew you'd be hiding there!",
-		"I see you!",
-	},
-	ANNOUNCE_KITCOON_HIDANDSEEK_FOUND_ONE_MORE = "Now where's that last one hiding?",
-	ANNOUNCE_KITCOON_HIDANDSEEK_FOUND_LAST_ONE = "I found the last one!",
-	ANNOUNCE_KITCOON_HIDANDSEEK_FOUND_LAST_ONE_TEAM = "{name} found the last one!",
-	ANNOUNCE_KITCOON_HIDANDSEEK_TIME_ALMOST_UP = "These little guys must be getting impatient...",
-	ANNOUNCE_KITCOON_HIDANDSEEK_LOSEGAME = "I guess they don't want to play any more...",
-	ANNOUNCE_KITCOON_HIDANDSEEK_TOOFAR = "They probably wouldn't hide this far away, would they?",
-	ANNOUNCE_KITCOON_HIDANDSEEK_TOOFAR_RETURN = "The kitcoons should be nearby.",
-	ANNOUNCE_KITCOON_FOUND_IN_THE_WILD = "I knew I saw something hiding over here!",
-
-	ANNOUNCE_TICOON_START_TRACKING	= "He's caught the scent!",
-	ANNOUNCE_TICOON_NOTHING_TO_TRACK = "Looks like he couldn't find anything.",
-	ANNOUNCE_TICOON_WAITING_FOR_LEADER = "I should follow him!",
-	ANNOUNCE_TICOON_GET_LEADER_ATTENTION = "He really wants me to follow him.",
-	ANNOUNCE_TICOON_NEAR_KITCOON = "He must have found something!",
-	ANNOUNCE_TICOON_LOST_KITCOON = "Looks like someone else found what he was looking for.",
-	ANNOUNCE_TICOON_ABANDONED = "I'll find those little guys on my own.",
-	ANNOUNCE_TICOON_DEAD = "Poor guy... Now where was he leading me?",																		  
     -- YOTB
     ANNOUNCE_CALL_BEEF = "C'mere big guy!",
     ANNOUNCE_CANTBUILDHERE_YOTB_POST = "The judge won't be able to see my beefalo from here.",
@@ -870,13 +777,6 @@ return {
     ANNOUNCE_EYEOFTERROR_ARRIVE = "First aliens, now a giant eyeball?!",
     ANNOUNCE_EYEOFTERROR_FLYBACK = "Poke 'em in the eye!",
     ANNOUNCE_EYEOFTERROR_FLYAWAY = "Yeah, you better run!",																		 
-	 -- PIRATES
-    ANNOUNCE_CANT_ESCAPE_CURSE = "Hello?? 4D Slip?? Please?!",
-    ANNOUNCE_MONKEY_CURSE_1 = "I don't feel good...",
-    ANNOUNCE_MONKEY_CURSE_CHANGE = "AH! What's happening to me?!",
-    ANNOUNCE_MONKEY_CURSE_CHANGEBACK = "Thanks, I'd like to stick with my human form.",
-
-    ANNOUNCE_PIRATES_ARRIVE = "There be pirates in these waters...",		  
 	BATTLECRY =
 	{
 		GENERIC = "You want some?!",
@@ -994,15 +894,6 @@ return {
             FIRESTARTER = "Whoa, man, careful with the fires.",
 		},
 		NESS =
-		{
-			GENERIC = "That's my dude, Ness!",
-            ATTACKER = "I don't remember you being like this.",
-            MURDERER = "Yeah, I'm cooler. By a long shot.",
-            REVIVER = "I guess I owe you one, dude!",
-            GHOST = "You would think dying is fun...",
-            FIRESTARTER = "Whoa, man, careful with the fires.",
-		},
-		GRAMNESS = 
 		{
 			GENERIC = "That's my dude, Ness!",
             ATTACKER = "I don't remember you being like this.",
@@ -1170,7 +1061,7 @@ return {
             MURDERER = "Whoa man, you're taking things too far!",
             REVIVER = "Thanks, dude! I was never that good at this Boy Scouts stuff, heh.",
             GHOST = "Great, %s's ghost.",
-            FIRESTARTER = "We uh, doing a bonfire thing, what is this?",																					 
+            FIRESTARTER = "We uh, doing a bonfire thing, what is this?",
         },
 
 		WANDA =
@@ -1181,17 +1072,7 @@ return {
             REVIVER = "Thanks, %s!",
             GHOST = "Looks like time traveling couldn't save you this time, huh?",
             FIRESTARTER = "Why is everything on fire %s?",
-        },
-
-		WONKEY =
-        {
-            GENERIC = "Ooh ooh aah aah!",
-            ATTACKER = "My experiences with monkeys has always been mixed.",
-            MURDERER = "Bad monkey, bad!",
-            REVIVER = "You saved me?",
-            GHOST = "Great, I'm being haunted by an ape.", 
-            FIRESTARTER = "...Really?",  
-        },
+        },	   
 		
         MIGRATION_PORTAL =
         {
@@ -1292,7 +1173,6 @@ return {
 			NIGHT_WANE = "The moon is waning.",
 			CAVE = "Can't see the moon down here.",
 			WEREBEAVER = "only_used_by_woodie", --woodie specific
-			GLASSED = "Yeah yeah, I see you too.",												   
         },
 		THULECITE = "I wonder where this is from?",
 		ARMORRUINS = "Not into armor, to be frank with you.",
@@ -1346,11 +1226,13 @@ return {
 		STAFFLIGHT = "That almost seems too warm.",
         STAFFCOLDLIGHT = "I'm freezing just looking at it!",
 		ANCIENT_ALTAR = "Looks like some sort of old ruin.",
-		ANCIENT_ALTAR_BROKEN = "Whatever this was ain't doing much now.",
-		ANCIENT_STATUE = "Creepy.",
-		
+
+        ANCIENT_ALTAR_BROKEN = "Whatever this was ain't doing much now.",
+
+        ANCIENT_STATUE = "Creepy.",
 		LICHEN = "What's this stuff?",
 		CUTLICHEN = "Oh, yuck! Why would I eat this?",
+
 		CAVE_BANANA = "Bananas are pretty good.",
 		CAVE_BANANA_COOKED = "Not bad.",
 		CAVE_BANANA_TREE = "I had no idea bananas could grow down here.",
@@ -1471,15 +1353,15 @@ return {
 		STALAGMITE_TALL_FULL= "Very rocky.",								   
 		STALAGMITE_TALL_LOW= "Very rocky.",
 		STALAGMITE_TALL_MED= "Very rocky.",
-        TURF_CARPETFLOOR = "Some carpet.",				  
+        TURF_CARPETFLOOR = "Some carpet.",
         TURF_CHECKERFLOOR = "Not bad.",
         TURF_DIRT = "Just some dirt.",
-        TURF_FOREST = "Some earth I got from a forest.",				 
+        TURF_FOREST = "Some earth I got from a forest.",
         TURF_GRASS = "It's soft.",
         TURF_MARSH = "Gross.",
         TURF_METEOR = "Space rocks.",
         TURF_PEBBLEBEACH = "Some beach rocks.",
-        TURF_ROAD = "I could make my own roads with this.",					 
+        TURF_ROAD = "I could make my own roads with this.",
         TURF_ROCKY = "Just some rocks.",
         TURF_SAVANNA = "I could use some grass.",
         TURF_WOODFLOOR = "Wooden flooring.",
@@ -1499,8 +1381,6 @@ return {
 		TURF_FUNGUS_GREEN = "Squishy.",
 		TURF_FUNGUS_RED = "How squishy.",
 		TURF_DRAGONFLY = "It's fireproof",
-		TURF_SHELLBEACH = "Sandy.",
-        TURF_MONKEY_GROUND = "Sandy.",
 
 		POWCAKE = "Dude, I don't even know if this junk is edible.",
         CAVE_ENTRANCE =  
@@ -1697,7 +1577,7 @@ return {
 			INGROUND = "Hey, what's that?",
 			PICKED = "Nothing there now.",
 		},
-		BOARDS = "Some planks, doing a whole lot of nothing.",
+		BOARDS = "Some planks, doing a whole lot of nothing",
 		BOAT = "Ugh. That wasn't my brightest idea...",
 		BONESHARD = "Wonder whose bones these are.",
 		BONESTEW = "That's a lot of meat!",
@@ -1803,13 +1683,8 @@ return {
         CHESSPIECE_KLAUS = "Christmas if it wasn't fun.",
         CHESSPIECE_BEEQUEEN = "Your majesty!",
         CHESSPIECE_ANTLION = "Annoying little thing...",
-		CHESSPIECE_KITCOON = "Adorable.",
-		CHESSPIECE_CATCOON = "Adorable-ish.",
-        CHESSPIECE_GUARDIANPHASE3 = "That wasn't very fun.",
-        CHESSPIECE_EYEOFTERROR = "Can't hurt me in stone form!",
-        CHESSPIECE_TWINSOFTERROR = "Can't hurt me in stone form!",
         CHESSJUNK1 = "Just some broken chess pieces.",
-        CHESSJUNK2 = "It's supposed be chess pieces, but just looks like junk to me.",			 
+        CHESSJUNK2 = "It's supposed be chess pieces, but just looks like junk to me.",
         CHESSJUNK3 = "Some broken chess pieces.",
 		CHESTER = "A living chest thingie.",
 		CHESTER_EYEBONE =
@@ -1933,7 +1808,7 @@ return {
 			COLD = "Oh, do you need warmth?",
 			COMFY = "There you go, my man!",
 		},
-		LAVAE_TOOTH = "That's your tooth?",	  
+		LAVAE_TOOTH = "That's your tooth?",
 
 		DRAGONFRUIT = "What kind of fruit is this?",
 		DRAGONFRUIT_COOKED = "Huh.",
@@ -2698,7 +2573,7 @@ return {
 		TRINKET_5 = "Space is so cool.", --Toy Rocketship
 		TRINKET_6 = "Some wires, I dunno.", --Frazzled Wires
 		TRINKET_7 = "What a dumb toy.", --Ball and Cup
-		TRINKET_8 = "Not gonna do me any good without a tub.", --Rubber Bung
+		TRINKET_8 = "Not goona do me any good without a tub.", --Rubber Bung
 		TRINKET_9 = "Might be useful for sewing.", --Mismatched Buttons
 		TRINKET_10 = "Someone lose their teeth?", --Dentures
 		TRINKET_11 = "Never trust a robot.", --Lying Robot
@@ -5014,9 +4889,8 @@ return {
 			EMPTY = "It's empty now.",
         },
         MOONGLASS = "Careful, it's sharp.",
-		MOONGLASS_CHARGED = "The energy is immense!",
         MOONGLASS_ROCK = "Oh! Looking good, Ninten, heh heh.",
-        BATHBOMB = "It has been a while since I've bathed out here.",											   
+        BATHBOMB = "It has been a while since I've bathed out here.",
         TRAP_STARFISH =
         {
             GENERIC = "It's just begging to poked.",
@@ -5087,7 +4961,6 @@ return {
             BURNT = "Well then.",
         },
         BOAT_ITEM = "Maybe I have a chance to get out of here.",
-		BOAT_GRASS_ITEM = "I sure hope it floats.",											 
         STEERINGWHEEL_ITEM = "That's the steering wheel.",
         ANCHOR_ITEM = "Now I can build an anchor.",
         MAST_ITEM = "Now I can build a mast.",
@@ -5201,7 +5074,6 @@ return {
 		OCEANFISH_MEDIUM_6 = "Very pretty scales you have!", --Dappled Koi
 		OCEANFISH_MEDIUM_7 = "Very pretty scales you have!", --Golden Koi
 		OCEANFISH_MEDIUM_8 = "It's so cold.", --Ice Bream
-		OCEANFISH_MEDIUM_9 = "Wait, the candy?? Grossss...",																			
 
 		PONDFISH = "I caught it!",
 		PONDEEL = "Whoa, an eel!",
@@ -5230,9 +5102,11 @@ return {
 		},
 
 		OCEANFISHABLEFLOTSAM = "Just some muddy grass.",
+
 		CALIFORNIAROLL = "I had sushi when my dad took me to Japan. I love it!",
 		SEAFOODGUMBO = "Yum!",
 		SURFNTURF = "Yum!",
+
         WOBSTER_SHELLER = "Oh, a lobster!", 
         WOBSTER_DEN = "It's a home for crabs.",
         WOBSTER_SHELLER_DEAD = "I've never had one of these before.",
@@ -5392,7 +5266,7 @@ return {
         CEVICHE = "It's okay I guess.",
         SALSA = "I love me some salsa!",
         PEPPERPOPPER = "They look delicious!",
-		
+
         TURNIP = "It's a turnip.",
         TURNIP_COOKED = "I roasted it.",
         TURNIP_SEEDS = "Some turnip seeds.",
@@ -5540,7 +5414,7 @@ return {
 
         DUSTMOTH = "Hey watch it, you'll give me an asthma attack with those wings!",
 
-        DUSTMOTHDEN = "A moth home.",
+        DUSTMOTHDEN = "They're snug as bugs in there.",
 
         ARCHIVE_LOCKBOX = "Open!",
         ARCHIVE_CENTIPEDE = "Uh oh! It's moving, and it's mad!",
@@ -5652,8 +5526,6 @@ return {
 		SWEETTEA = "I don't think I've ever had tea.",
 		TILLWEED = "Ugh. Weeds.",
 		TILLWEEDSALVE = "Guess it's useful for old people, or something.",
-		WEED_IVY = "Weeds...",
-        IVY_SNARE = "Hey!",										  								
 
 		TROPHYSCALE_OVERSIZEDVEGGIES =
 		{
@@ -5672,7 +5544,7 @@ return {
         DURIAN_OVERSIZED = "It still smells.",
         POMEGRANATE_OVERSIZED = "It's massive.",
         DRAGONFRUIT_OVERSIZED = "We're eating like kings!",
-        WATERMELON_OVERSIZED = "Mmmmmm. I could eat it all on my own.",						 
+        WATERMELON_OVERSIZED = "Mmmmmm. I could eat it all on my own.",
         TOMATO_OVERSIZED = "That's quite the tomato.",
         POTATO_OVERSIZED = "Imagine how much french fries you could make out of this bad boy!",
         ASPARAGUS_OVERSIZED = "Ugh. I'd rather not.",
@@ -5695,6 +5567,7 @@ return {
 
 			BURNING = "My foooooood!!",
 		},
+
         FRUITFLY = "Shoo, shoo!",
         LORDFRUITFLY = "What is thaaaaaaat?!",
         FRIENDLYFRUITFLY = "It's not so bad.",
@@ -5737,42 +5610,10 @@ return {
 		CARNIVALGAME_HERDING_STATION =
 		{
 			GENERIC = "Where'd my tokens go?",
-			PLAYING = "Seems more like a chore than a game.",											 
+			PLAYING = "Seems more like a chore than a game.",
 		},
 		CARNIVALGAME_HERDING_CHICK = "Not so fast!",
-		
-		CARNIVALGAME_SHOOTING_KIT = "Now, where shall we put this?",
-		CARNIVALGAME_SHOOTING_STATION =
-		{
-			GENERIC = "I need a token.",
-			PLAYING = "Heh, I'm a bit of a natural at these types of games. Watch.",
-		},
-		CARNIVALGAME_SHOOTING_TARGET =
-		{
-			GENERIC = "It's a little trapdoor.",
-			PLAYING = "I'll nail 'em!",
-		},
 
-		CARNIVALGAME_SHOOTING_BUTTON =
-		{
-			GENERIC = "I need a token.",
-			PLAYING = "Watch and learn!",
-		},
-
-		CARNIVALGAME_WHEELSPIN_KIT = "Now, where shall we put this?",
-		CARNIVALGAME_WHEELSPIN_STATION =
-		{
-			GENERIC = "I need a token.",
-			PLAYING = "These games are rigged!",
-		},
-
-		CARNIVALGAME_PUCKDROP_KIT = "Now, where shall we put this?",
-		CARNIVALGAME_PUCKDROP_STATION =
-		{
-			GENERIC = "I need a token.",
-			PLAYING = "I always disliked this arcade game.",
-		},
-		
 		CARNIVAL_PRIZEBOOTH_KIT = "Prizes not included.",
 		CARNIVAL_PRIZEBOOTH =
 		{
@@ -5799,10 +5640,8 @@ return {
 
 		CARNIVALDECOR_LAMP_KIT = "What's a carnival without some proper lighting?",
 		CARNIVALDECOR_LAMP = "There we are, lights!",
-		CARNIVALDECOR_PLANT_KIT = "Oh cool, it's like a bonsai tree! I learned about them in Japan.",											  
+		CARNIVALDECOR_PLANT_KIT = "Oh cool, it's like a bonsai tree! I learned about them in Japan.",
 		CARNIVALDECOR_PLANT = "I should get one of these for my room back in Podunk!",
-		CARNIVALDECOR_BANNER_KIT = "This'll spice things up.",
-		CARNIVALDECOR_BANNER = "Yep, nice and spicy.",
 
 		CARNIVALDECOR_FIGURE =
 		{
@@ -5811,11 +5650,11 @@ return {
 			GENERIC = "Ugh. Just the same thing, over and over again.",
 		},
 		CARNIVALDECOR_FIGURE_KIT = "I wonder what it'll be?",
-		CARNIVALDECOR_FIGURE_KIT_SEASON2 = "I wonder what it'll be?",														
 
         CARNIVAL_BALL = "It's genius in its simplicity.", --unimplemented
 		CARNIVAL_SEEDPACKET = "Eh, it's not sunflower seeds, but it'll do.",
 		CARNIVALFOOD_CORNTEA = "It's... new, I'll give you that.",
+
         CARNIVAL_VEST_A = "Pretty stylish... for a bunch of leaves.",
         CARNIVAL_VEST_B = "I'd rather not wear it.",
         CARNIVAL_VEST_C = "Do I have to wear this?",		  
@@ -5881,46 +5720,6 @@ return {
         BEAST_BLUEPRINT = "I'm feeling lucky about this one!",
 
         BEEF_BELL = "Those beefalo things seem to like it.",
-		-- YOT Catcoon
-		KITCOONDEN =
-		{
-			GENERIC = "You'd have to be pretty small to fit in there.",
-            BURNT = "NOOOO!",
-			PLAYING_HIDEANDSEEK = "Now where could they be...",
-			PLAYING_HIDEANDSEEK_TIME_ALMOST_UP = "Not much time left! Where are they?!",
-		},
-
-		KITCOONDEN_KIT = "The whole kit and caboodle.",
-
-		TICOON =
-		{
-			GENERIC = "He looks like he knows what he's doing!",
-			ABANDONED = "I'm sure I can find them on my own.",
-			SUCCESS = "Hey, he found one!",
-			LOST_TRACK = "Someone else found them first.",
-			NEARBY = "Looks like there's something nearby.",
-			TRACKING = "I should follow his lead.",
-			TRACKING_NOT_MINE = "He's leading the way for someone else.",
-			NOTHING_TO_TRACK = "It doesn't look like there's anything left to find.",
-			TARGET_TOO_FAR_AWAY = "They might be too far away for him to sniff out.",
-		},
-
-		YOT_CATCOONSHRINE =
-        {
-            GENERIC = "What to make...",
-            EMPTY = "Maybe it would like a feather to play with...",
-            BURNT = "Smells like scorched fur.",
-        },
-
-		KITCOON_FOREST = "Aren't you the cutest little cat thing!",
-		KITCOON_SAVANNA = "Aren't you the cutest little cat thing!",
-		KITCOON_MARSH = "I must collect more... for research!",
-		KITCOON_DECIDUOUS = "Aren't you the cutest little cat thing!",
-		KITCOON_GRASS = "Aren't you the cutest little cat thing!",
-		KITCOON_ROCKY = "I must collect more... for research!",
-		KITCOON_DESERT = "I must collect more... for research!",
-		KITCOON_MOON = "I must collect more... for research!",
-		KITCOON_YOT = "I must collect more... for research!",		
 		-- Moon Storm
         ALTERGUARDIAN_PHASE1 = {
             GENERIC = "Watch out!",
@@ -6060,8 +5859,7 @@ return {
 
         DUMBBELL = "Too heavy for me!",
         DUMBBELL_GOLDEN = "I wonder if I could pawn that once I get out of here.",
-		DUMBBELL_MARBLE = "I'm way too small for that.",
-        DUMBBELL_GEM = "Looks more like a murder weapon than for exercise!",																						
+        DUMBBELL_GEM = "Looks more like a murder weapon than for exercise!",
         POTATOSACK = "Some sort of potato sack.",
 
 
@@ -6071,12 +5869,13 @@ return {
 			BURNT = "Nothing's inside it now.",
 			SHIMMER = "That seems a bit out of place...",
 		},
+
 		EYEMASKHAT = "Looks painful. No thanks.",
 
         EYEOFTERROR = "That is some nightmare fuel!",
         EYEOFTERROR_MINI = "I don't like how it's staring at me.",
         EYEOFTERROR_MINI_GROUNDED = "I don't trust that.",
-														 
+
         FROZENBANANADAIQUIRI = "Looks yummy!",
         BUNNYSTEW = "Stew is alright, I guess.",
         MILKYWHITES = "Yuck.",
@@ -6086,130 +5885,6 @@ return {
         SHIELDOFTERROR ="It's a weapon, it's a shield, what more could you want?",
         TWINOFTERROR1 = "Are you one of Giygas' robots?",
         TWINOFTERROR2 = "Are you one of Giygas' robots?",			 						
-	
-	-- Year of the Catcoon
-        CATTOY_MOUSE = "Mice with wheels, what will science think up next?",
-        KITCOON_NAMETAG = "I should think of some names! Let's see, Wilson Jr., Wilson Jr. 2...",
-
-		KITCOONDECOR1 =
-        {
-            GENERIC = "It's not a real bird, but the kits don't know that.",
-            BURNT = "Combustion!",
-        },
-		KITCOONDECOR2 =
-        {
-            GENERIC = "Those kits are so easily distracted. Now what was I doing again?",
-            BURNT = "It went up in flames.",
-        },
-
-		KITCOONDECOR1_KIT = "It looks like there's some assembly required.",
-		KITCOONDECOR2_KIT = "It doesn't look too hard to build.",
-
-        -- WX78
-        WX78MODULE_MAXHEALTH = "Great Grandpa probably understands this junk better than me.",
-        WX78MODULE_MAXSANITY1 = "Great Grandpa probably understands this junk better than me.",
-        WX78MODULE_MAXSANITY = "Great Grandpa probably understands this junk better than me.",
-        WX78MODULE_MOVESPEED = "Great Grandpa probably understands this junk better than me.",
-        WX78MODULE_MOVESPEED2 = "Great Grandpa probably understands this junk better than me.",
-        WX78MODULE_HEAT = "Great Grandpa probably understands this junk better than me.",
-        WX78MODULE_NIGHTVISION = "Great Grandpa probably understands this junk better than me.",
-        WX78MODULE_COLD = "Great Grandpa probably understands this junk better than me.",
-        WX78MODULE_TASER = "Great Grandpa probably understands this junk better than me.",
-        WX78MODULE_LIGHT = "Great Grandpa probably understands this junk better than me.",
-        WX78MODULE_MAXHUNGER1 = "Great Grandpa probably understands this junk better than me.",
-        WX78MODULE_MAXHUNGER = "Great Grandpa probably understands this junk better than me.",
-        WX78MODULE_MUSIC = "Great Grandpa probably understands this junk better than me.",
-        WX78MODULE_BEE = "Great Grandpa probably understands this junk better than me.",
-        WX78MODULE_MAXHEALTH2 = "Great Grandpa probably understands this junk better than me.",
-
-        WX78_SCANNER =
-        {
-            GENERIC ="Robots are weird.",
-            HUNTING = "It's looking for something.",
-            SCANNING = "Whatcha scanning?",
-        },
-
-        WX78_SCANNER_ITEM = "This thing's scans are harmless, right?",
-        WX78_SCANNER_SUCCEEDED = "It found something!",
-
-        WX78_MODULEREMOVER = "Looks like junk.",
-
-        SCANDATA = "Mumbo-jumbo.",
-
-        -- Pirates
-        BOAT_ROTATOR = "Don't spin it too fast!",
-        BOAT_ROTATOR_KIT = "For spinning. Duh.",
-        BOAT_BUMPER_KELP = "Anyone for a little game of bumper-boats?",
-        BOAT_BUMPER_KELP_KIT = "It probably works like a car's.",
-        BOAT_BUMPER_SHELL = "I'm unstoppable!",
-        BOAT_BUMPER_SHELL_KIT = "It probably works like a car's.",
-        BOAT_CANNON = {
-            GENERIC = "No ammo, but at least it's intimidating!",
-            AMMOLOADED = "Yaaar!",
-        },
-        BOAT_CANNON_KIT = "Now I just need a boat.",
-        CANNONBALL_ROCK_ITEM = "I'll use it for a cannon.",
-
-        OCEAN_TRAWLER = {
-            GENERIC = "I'll caught lots of seafood now.",
-            LOWERED = "Hopefully I found something.",
-            CAUGHT = "Gotcha!",
-            ESCAPED = "My food!",
-            FIXED = "You won't escape this time.",
-        },
-        OCEAN_TRAWLER_KIT = "Here fishy fishies!",
-
-        BOAT_MAGNET =
-        {
-            GENERIC = "I think it's a magnet.",
-            ACTIVATED = "Doing magnet things.",
-        },
-        BOAT_MAGNET_KIT = "I don't what I'm doing with it.",
-
-        BOAT_MAGNET_BEACON =
-        {
-            GENERIC = "It attracts magnets!",
-            ACTIVATED = "Look at it go!",
-        },
-        DOCK_KIT = "About time we got a dock.",
-        DOCK_WOODPOSTS_ITEM = "Yeah, supports seemed important.",
-
-        MONKEYHUT = "Tropical.",
-        POWDER_MONKEY = "Hands off my stuff!",
-        PRIME_MATE = "Must be their leader.",
-		LIGHTCRAB = "Whoa!",
-        CUTLESS = "It's the thought that counts.",
-        CURSED_MONKEY_TOKEN = "What's thins?",
-        OAR_MONKEY = "One of these days I'll get my hands an actual bat.",
-        BANANABUSH = "I thought they grew on trees.",
-        DUG_BANANABUSH = "Where to put you?",
-        PALMCONETREE = "Never seen a palm tree quite like it.",
-        PALMCONE_SEED = "I should plant it.",
-        PALMCONE_SAPLING = "Grow!!",
-        PALMCONE_SCALE = "It's sturdy.",
-        MONKEYTAIL = "The things I do to survive.",
-        DUG_MONKEYTAIL = "The things I do to survive.",
-
-        MONKEY_MEDIUMHAT = "I knew I'd be an awesome captain.",
-        MONKEY_SMALLHAT = "Yaaaar, matey!",
-        POLLY_ROGERSHAT = "I look. Awesome.",
-        POLLY_ROGERS = "My very own parrot!",
-
-        MONKEYISLAND_PORTAL = "Looks like trouble.",
-        MONKEYISLAND_PORTAL_DEBRIS = "I don't know what that scientist dude is up to, but I don't like it.",
-        MONKEYQUEEN = "It's the queen!",
-        MONKEYPILLAR = "Pretty.",
-        PIRATE_FLAG_POLE = "Here be pirates.",
-
-        BLACKFLAG = "Don't mess with Captain Ninten!",
-        PIRATE_STASH = "Treasure!",
-        STASH_MAP = "A treasure map!",
-
-														 
-
-        BANANAJUICE = "I prefer OJ to be honest.",
-														 
-																   
     },
 
     DESCRIBE_GENERIC = "Er, what's that?",

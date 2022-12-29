@@ -63,15 +63,6 @@ end
 -----------------------------------------
 local function canSlip(inst, target, pos)
 	local caster = inst.components.inventoryitem.owner	
-	local water = nil
-	if TUNING.ISLAND_ADVENTURE_ENABLED then water = IsWater(TheWorld.Map:GetTileAtPoint(pos.x, pos.y, pos.z)) end
-	if caster.components.sailor and water and caster.components.sailor:IsSailing() == false then
-		caster.components.talker:Say("I'd rather not just throw myself into the ocean.")
-		return
-	elseif caster.components.sailor and not water and caster.components.sailor:IsSailing() then
-		--todo figure out if we can disembark before teleporting so the boat isn't lost
-		caster.components.talker:Say("That'd beach my boat!")
-	end
 
     if caster.components.sanity.current >= TUNING.GRAMNINTEN_4DSLIP_SANITY then
         caster.components.sanity:DoDelta(-TUNING.GRAMNINTEN_4DSLIP_SANITY)
@@ -88,22 +79,17 @@ local function createSlip(name)
 		local inst = CreateEntity()
 		inst.entity:AddTransform()
 		inst.entity:AddAnimState()
-		inst.entity:AddNetwork()
 		
 		MakeInventoryPhysics(inst)
 		inst.AnimState:SetBank("ground_" .. name)
 		inst.AnimState:SetBuild("ground_" .. name)
 		inst.AnimState:PlayAnimation("idle")
-		if not TheWorld.ismastersim then
-			return inst
-		end
-		inst.entity:SetPristine()
 		
-		inst:AddComponent("spellcaster")	
-		inst.components.spellcaster:SetSpellFn(canSlip)
-		inst.components.spellcaster.canuseonpoint = true
-		inst.components.spellcaster.canuseonpoint_water = true
-		inst.components.spellcaster.veryquickcast = true
+		inst:AddComponent("betterspellcaster")	
+		inst.components.betterspellcaster:SetSpellFn(canSlip)
+		inst.components.betterspellcaster.canuseonpoint = true
+		inst.components.betterspellcaster.canuseonpoint_water = true
+		inst.components.betterspellcaster.quickcast = true
 		
 		inst:AddComponent("inspectable")
 		inst:AddComponent("inventoryitem")

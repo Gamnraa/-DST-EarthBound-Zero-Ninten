@@ -4,14 +4,11 @@ PrefabFiles = {
 	
 	"four_d_slip",
 	"psi_shield_ninten",
-	--"psi_techniques",
 	"inhaler_ninten",
 	"nintens_coat",
 	"baseball_cap_ninten",
 	"shield_fx",
-	"counter_fx",
-	"baseball_bat_ness",
-	--"baseball_ninten", --shhhhh
+	"counter_fx"
 }
 
 Assets = {
@@ -23,30 +20,9 @@ Assets = {
 	
     Asset( "IMAGE", "images/selectscreen_portraits/gramninten_silho.tex" ),
     Asset( "ATLAS", "images/selectscreen_portraits/gramninten_silho.xml" ),
-
-    Asset( "IMAGE", "bigportraits/gramninten.tex" ),
-    Asset( "ATLAS", "bigportraits/gramninten.xml" ),
-	
-	Asset( "IMAGE", "bigportraits/gramninten_none.tex" ),
-    Asset( "ATLAS", "bigportraits/gramninten_none.xml" ),
-	
-	Asset( "IMAGE", "bigportraits/ms_gramninten_summer.tex" ),
-    Asset( "ATLAS", "bigportraits/ms_gramninten_summer.xml" ),
 	
 	Asset( "IMAGE", "images/map_icons/gramninten.tex" ),
 	Asset( "ATLAS", "images/map_icons/gramninten.xml" ),
-	
-	Asset( "IMAGE", "images/avatars/avatar_gramninten.tex" ),
-    Asset( "ATLAS", "images/avatars/avatar_gramninten.xml" ),
-	
-	Asset( "IMAGE", "images/avatars/avatar_ghost_gramninten.tex" ),
-    Asset( "ATLAS", "images/avatars/avatar_ghost_gramninten.xml" ),
-	
-	Asset( "IMAGE", "images/avatars/self_inspect_gramninten.tex" ),
-    Asset( "ATLAS", "images/avatars/self_inspect_gramninten.xml" ),
-	
-	Asset( "IMAGE", "images/names_gramninten.tex" ),
-    Asset( "ATLAS", "images/names_gramninten.xml" ),
 	
 	Asset( "IMAGE", "images/names_gold_gramninten.tex" ),
     Asset( "ATLAS", "images/names_gold_gramninten.xml" ),
@@ -72,15 +48,12 @@ Assets = {
 	Asset( "IMAGE", "images/inventoryimages/inhaler_ninten.tex" ),
 	Asset( "ATLAS", "images/inventoryimages/inhaler_ninten.xml" ),
 	
-	Asset( "IMAGE", "images/inventoryimages/baseball_bat_ness.tex" ),
-    Asset( "ATLAS", "images/inventoryimages/baseball_bat_ness.xml" ),
-	
 	Asset("SOUNDPACKAGE", "sound/gramninten.fev"),
 	Asset("SOUND", "sound/gramninten.fsb"),
 	Asset("SOUNDPACKAGE", "sound/psishield.fev"),
 	Asset("SOUND", "sound/psishield.fsb"),
 	
-	Asset("ANIM", "anim/anim_gramninten.zip"),
+	--Asset("ANIM", "anim/player_groggy.zip"),
 }
 
 AddMinimapAtlas("images/map_icons/gramninten.xml")
@@ -91,8 +64,6 @@ local TUNING = GLOBAL.TUNING
 local RECIPETABS = GLOBAL.RECIPETABS
 local Ingredient = GLOBAL.Ingredient
 local TECH = GLOBAL.TECH
-
-TUNING.ISLAND_ADVENTURE_ENABLED = GLOBAL.KnownModIndex:IsModEnabled("workshop-1467214795")
 
 
 --if TUNING.GRAMNINTEN_VOICE == "gramninten" then
@@ -113,20 +84,14 @@ STRINGS.CHARACTER_TITLES.gramninten = "The Original"
 STRINGS.CHARACTER_NAMES.gramninten = "Ninten"
 STRINGS.CHARACTER_DESCRIPTIONS.gramninten = "*Gifted with Powers\n*Dresses with Style\n*Lovable Asthmatic"
 STRINGS.CHARACTER_QUOTES.gramninten = "\"Now that the Earth's crisis is over...\""
-STRINGS.CHARACTER_SURVIVABILITY.gramninten = "Grim"
-
-STRINGS.SKIN_DESCRIPTIONS.gramninten_none = "Ninten's favorite outfit."
-
-STRINGS.SKIN_NAMES.ms_gramninten_summer = "The Laidback"
-STRINGS.SKIN_DESCRIPTIONS.ms_gramninten_summer = "He doesn't seem to be taking this all too seriously. Although, when you're someone like Ninten, do you really have to?"
-STRINGS.SKIN_QUOTES.ms_gramninten_summer = "\"You see survival. I see a vacation.\""
+--STRINGS.CHARACTER_SURVIVABILITY.gramninten = "Grim"
 
 -- Custom speech strings
 STRINGS.CHARACTERS.GRAMNINTEN = require "speech_gramninten"
 
 -- The character's name as appears in-game 
 STRINGS.NAMES.GRAMNINTEN = "Ninten"
-STRINGS.SKIN_NAMES.gramninten_none = "Ninten"
+--STRINGS.SKIN_NAMES.gramninten_none = "Ninten"
 
 TUNING.GRAMNINTEN_HEALTH = GetModConfigData("GRAMNINTEN_HEALTH")
 TUNING.GRAMNINTEN_SANITY = GetModConfigData("GRAMNINTEN_SANITY")
@@ -152,37 +117,135 @@ local skin_modes = {
 }
 
 -- Add mod character to mod character list. Also specify a gender. Possible genders are MALE, FEMALE, ROBOT, NEUTRAL, and PLURAL.
-AddModCharacter("gramninten", "MALE", skin_modes)
+--table.insert(GLOBAL.CHARACTER_GENDERS.MALE, "gramninten")
+AddModCharacter("gramninten")
+
+--Spellcasting
+local ActionHandler = GLOBAL.ActionHandler
+local DSTCASTSPELL = GLOBAL.Action ( {mount_enabled=true},
+									  1, --priority
+									  false, --instant
+									  true, --rmb
+									  20) --range
+DSTCASTSPELL.id = "DSTCASTSPELL"
+DSTCASTSPELL.str = "Cast Spell"
+DSTCASTSPELL.crosseswaterboundary = true
+DSTCASTSPELL.fn = function(act)
+    --For use with magical staffs
+	print("Cast spell")
+    local staff = act.invobject or act.doer.components.inventory:GetEquippedItem(EQUIPSLOTS.HANDS)
+	--local act_pos = act:GetActionPoint()
+    if staff and staff.components.betterspellcaster and staff.components.betterspellcaster:CanCast(act.doer, act.target, act.pos) then
+        staff.components.betterspellcaster:CastSpell(act.target, act.pos, act.doer)
+        return true
+    end
+end
+
+AddAction(DSTCASTSPELL)
+
+local quickcastspell = GLOBAL.State({
+        name = "quickcastspell",
+        tags = { "doing", "busy", "canrotate" },
+
+        onenter = function(inst)
+            inst.components.locomotor:Stop()
+            if inst.components.rider:IsRiding() then
+                inst.AnimState:PlayAnimation("player_atk")
+                --inst.AnimState:PushAnimation("player_atk", false)
+            else
+				inst.AnimState:PlayAnimation("atk")
+				--inst.AnimState:PushAnimation("atk", false)
+            end
+            inst.SoundEmitter:PlaySound("dontstarve/wilson/attack_weapon")
+        end,
+		
+        timeline =
+        {
+            GLOBAL.TimeEvent(9 * GLOBAL.FRAMES, function(inst)
+                inst:PerformBufferedAction()
+				inst.sg:RemoveStateTag("busy")
+				inst.sg:AddStateTag("idle")
+            end),
+        },
+
+        events =
+        {
+            GLOBAL.EventHandler("animqueueover", function(inst)
+                if inst.AnimState:AnimDone() then
+                    inst.sg:GoToState("idle")
+                end
+            end),
+        },
+    })
+AddStategraphState("wilson", quickcastspell)
+AddStategraphState("wilsonboating", quickcastspell)
+
+AddStategraphActionHandler("wilson", GLOBAL.ActionHandler(DSTCASTSPELL, function(inst, action)
+	return action.invobject ~= nil
+        and (
+				(action.invobject:HasTag("quickcast") and "quickcastspell")
+			)
+		or "castspell"
+	end))
+
+AddStategraphActionHandler("wilsonboating", GLOBAL.ActionHandler(DSTCASTSPELL, function(inst, action)
+	return action.invobject ~= nil
+        and (
+				(action.invobject:HasTag("quickcast") and "quickcastspell")
+			)
+		or "castspell"
+	end))
+	
+--Adding in externaldamagetakenmultipliers
+--Won't function exactly the same here, but we don't need it to...
+--In fact I'll refactor the name in case someone else attempts the same for that reason
+AddComponentPostInit("combat", function(combat)
+	combat.externaldamagetakenmultipliersninten = 1
+	
+	--Save the old GetAttacked function before overwriting it
+	local old_getattacked = combat.GetAttacked
+	combat.GetAttacked = function(self, attacker, damage, weapon, stimuli)
+		--print(damage)
+		if combat.inst.components.health and damage and not damagerederecttarget then
+			--if self.inst.components.inventory then
+			--	damage = self.inst.components.inventory:ApplyDamage(damage, attacker)
+			--end
+			damage = damage * self.externaldamagetakenmultipliersninten
+		end
+		if stimuli then
+			return old_getattacked(self, attacker, damage, weapon, stimuli)
+		else
+			return old_getattacked(self, attacker, damage, weapon)
+		end
+	end
+end)
 
 
 --Inhaler stuff
-AddReplicableComponent("asthma")
-
-local ActionHandler = GLOBAL.ActionHandler
-local USE_INHALER = AddAction("NINTEN_INHALER", "Use Inhaler", function(act)
+--AddReplicableComponent("asthma")
+local NINTEN_INHALER = GLOBAL.Action ( {},
+									  1, --priority
+									  nil, --instant
+									  true --rmb
+									  )
+NINTEN_INHALER.fn = function(act)
 	if act.doer then
 		if act.doer.prefab == "gramninten" then
 			if (act.doer.components.asthma.isAsthmaWarning or act.doer.components.asthma.isAsthamaAttack) and act.invobject then
 				return act.invobject.components.ninteninhaler:UseInhaler(act.doer)
 			else act.doer.components.talker:Say("I don't need my inhaler.")
 			end
-		else
-			local line = "I don't need this!"
-			if act.doer.prefab == "wx78" then line = "I HAVE NO USE FOR THIS" end
-			act.doer.components.talker:Say(line)
 		end
 	end
-end)
+end
 
-USE_INHALER.silent_fail = true
+NINTEN_INHALER.id = "NINTEN_INHALER"
+NINTEN_INHALER.silent_fail = true
+NINTEN_INHALER.str = "Use Inhaler"
+AddAction(NINTEN_INHALER)
 
 AddStategraphActionHandler("wilson", ActionHandler(GLOBAL.ACTIONS.NINTEN_INHALER, "dolongaction"))
-AddStategraphActionHandler("wilson_client", ActionHandler(GLOBAL.ACTIONS.NINTEN_INHALER, "dolongaction"))
-
-local function canUseInhaler(inst, doer, actions, right) 
-	table.insert(actions, GLOBAL.ACTIONS.NINTEN_INHALER)
-end
-AddComponentAction("INVENTORY", "ninteninhaler", canUseInhaler)
+AddStategraphActionHandler("wilsonboating", ActionHandler(GLOBAL.ACTIONS.NINTEN_INHALER, "dolongaction"))
 
 local asthmaOverlay = require "widgets/asthmaoverlay"
 AddClassPostConstruct("widgets/statusdisplays", function(self)
@@ -193,124 +256,79 @@ AddClassPostConstruct("widgets/statusdisplays", function(self)
 	self.owner.asthmaUI = self:AddChild(asthmaOverlay(self.owner, -175, 100))
 end)
 
-modimport "scripts/baseball_bat_ness_common"
-
---Recipes
-local baseball_cap_recipe = AddRecipe("baseball_cap_ninten",
-	{Ingredient("silk", 4)},
-	RECIPETABS.DRESS, TECH.SCIENCE_ONE, nil, nil, nil, 1, "nintencraft")
-
-baseball_cap_recipe.atlas= "images/inventoryimages/baseball_cap_ninten.xml"
-baseball_cap_recipe.image = "baseball_cap_ninten.tex"	
-STRINGS.RECIPE_DESC.BASEBALL_CAP_NINTEN = "A stylish hat to keep cool under."
-
-local nintens_coat_recipe = {}
-if TUNING.ISLAND_ADVENTURE_ENABLED then
-	nintens_coat_recipe = AddRecipe("nintens_coat",
-	{Ingredient("silk", 6),
-	 Ingredient("fabric", 4)},
-	 RECIPETABS.DRESS, TECH.SCIENCE_ONE, nil, nil, nil, 1, "nintencraft")
-else
-	nintens_coat_recipe = AddRecipe("nintens_coat",
-	{Ingredient("silk", 6),
-	Ingredient("beefalowool", 2)},
-	RECIPETABS.DRESS, TECH.SCIENCE_ONE, nil, nil, nil, 1, "nintencraft")
+--DLC Check
+TUNING.DLC_ACTIVE = GLOBAL.IsDLCEnabled(1) or GLOBAL.IsDLCEnabled(2) or GLOBAL.IsDLCEnabled(3)
+if TUNING.DLC_ACTIVE then
+	AddPrefabPostInit("nintens_coat", function(inst)
+		inst:AddComponent("waterproofer")
+		inst.components.waterproofer:SetEffectiveness(TUNING.WATERPROOFNESS_SMALL)
+	end)
+	
+	AddPrefabPostInit("baseball_cap_ninten", function(inst)
+		inst:AddComponent("waterproofer")
+		inst.components.waterproofer:SetEffectiveness(TUNING.WATERPROOFNESS_SMALL)
+	end)
 end
-nintens_coat_recipe.atlas= "images/inventoryimages/nintens_coat.xml"
-nintens_coat_recipe.image = "nintens_coat.tex"	
-STRINGS.RECIPE_DESC.NINTENS_COAT = "A stylish coat to keep you warm."
 
-local inhaler_ninten_recipe = AddRecipe("inhaler_ninten",
-	{Ingredient("nitre", 6),
-	 Ingredient("cutreeds", 3),
-	 Ingredient("bluegem", 1)},
-	 RECIPETABS.SURVIVAL, TECH.MAGIC_TWO, nil, nil, nil, 1, "nintencraft")
-inhaler_ninten_recipe.atlas= "images/inventoryimages/inhaler_ninten.xml"
-inhaler_ninten_recipe.image = "inhaler_ninten.tex"	
-STRINGS.RECIPE_DESC.INHALER_NINTEN = "Subdues asthma attacks."
-
-local powershield_recipe = AddRecipe("powershield_ninten",
-	{Ingredient("purplegem", 1),
-	 Ingredient("psi_shield_ninten", 1, "images/inventoryimages/psi_shield_ninten.xml", nil, "psi_shield_ninten.tex"),
-	 Ingredient(GLOBAL.CHARACTER_INGREDIENT.SANITY, TUNING.GRAMNINTEN_SANITY)},
-	 RECIPETABS.MAGIC, TECH.MAGIC_THREE, nil, nil, nil, 1, "nintencraft")
-powershield_recipe.atlas= "images/inventoryimages/powershield_ninten.xml"
-powershield_recipe.image = "powershield_ninten.tex"	
-STRINGS.RECIPE_DESC.POWERSHIELD_NINTEN = "PSI Shield, but even better."
-
-local four_d_slip_o_recipe = AddRecipe("four_d_slip_o",
-	{Ingredient("purplegem", 1),
-	 Ingredient("four_d_slip", 1, "images/inventoryimages/four_d_slip.xml", nil, "four_d_slip.tex"),
-	 Ingredient(GLOBAL.CHARACTER_INGREDIENT.SANITY, TUNING.GRAMNINTEN_SANITY)},
-	 RECIPETABS.MAGIC, TECH.MAGIC_THREE, nil, nil, nil, 1, "nintencraft")
-four_d_slip_o_recipe.atlas= "images/inventoryimages/four_d_slip_o.xml"
-four_d_slip_o_recipe.image = "four_d_slip_o.tex"	
-STRINGS.RECIPE_DESC.FOUR_D_SLIP_O = "4D Slip, but even better."
-
-AddCharacterRecipe("psi_shield_ninten",
-	{Ingredient("purplegem", 1),
-	 Ingredient(GLOBAL.CHARACTER_INGREDIENT.SANITY, 50)},
-	GLOBAL.TECH.MAGIC_THREE,
-	{
-		product = "psi_shield_ninten",
-		builder_tag = "nintencraft",
-		numtogive = 1,
-		atlas = "images/inventoryimages/psi_shield_ninten.xml",
-		image = "psi_shield_ninten.tex"
-	},
-	{
-		"MAGIC",
-		"ARMOUR",
-	})
-STRINGS.RECIPE_DESC.PSI_SHIELD_NINTEN = "Envelop yourself with a psychokinetic shield."
-AddCharacterRecipe("four_d_slip",
-	{Ingredient("purplegem", 1),
-	 Ingredient(GLOBAL.CHARACTER_INGREDIENT.SANITY, 50)},
-	GLOBAL.TECH.MAGIC_THREE,
-	{
-		product = "four_d_slip",
-		builder_tag = "nintencraft",
-		numtogive = 1,
-		atlas = "images/inventoryimages/four_d_slip.xml",
-		image = "four_d_slip.tex"
-	},
-	{
-		"MAGIC",
-	})
-STRINGS.RECIPE_DESC.FOUR_D_SLIP = "Travel perpendicular to 3D space."
-
-AddRecipeToFilter("baseball_cap_ninten", "CLOTHING")
-AddRecipeToFilter("baseball_cap_ninten", "SUMMER")
-
-AddRecipeToFilter("nintens_coat", "CLOTHING")
-AddRecipeToFilter("nintens_coat", "WINTER")
-
-AddRecipeToFilter("powershield_ninten", "MAGIC")
-AddRecipeToFilter("powershield_ninten", "ARMOR")
-
-AddRecipeToFilter("four_d_slip_o", "MAGIC")
-
-AddRecipeToFilter("inhaler_ninten", "RESTORATION")
-
-STRINGS.CHARACTERS.GRAMNINTEN.DESCRIBE.BASEBALL_CAP_NINTEN = "My favorite baseball cap."
-STRINGS.CHARACTERS.GRAMNINTEN.DESCRIBE.BASEBALL_BAT_NESS = "I'm a bit of a natural when it comes to baseball, heh."
-
-
-local SCRIPT_GRAMNINTEN1 = {
-	cast = {"gramninten"},
-	lines = {
-		{roles = {"gramninten"},	duration ="3.5", line = "Anyone ever tell you guys how I, Ninten, saved the world?"},
-		{roles = {"gramninten"},	duration ="3.0", line = "I'm surprised you dweebs don't know me,"},
-		{roles = {"gramninten"},	duration ="3.0", line = "I am a bit of a celebrity, after all, heheh."},
-		{roles = {"gramninten"},	duration ="3.0", line = "But anywho, it was a normal Spring morning."},
-		{roles = {"gramninten"},	duration ="3.0", line = "Or maybe it was closer to early Summer..."},
-		{roles = {"gramninten"},	duration ="5.0", line = "And am I sure it was in the morning?"},
-		{roles = {"gramninten"},	duration ="2.2", line = "You know what,"},
-		{roles = {"gramninten"},	duration ="3.0", line = "Who cares?! Just know that I'm awesome.", anim="ninten_whocares"},
-		{roles = {"gramninten"},	duration ="2.0", line = "I'm bored. See ya, nerds!"},
-	}
+--Add Inhaler to Hamlet shop
+local ninten_antiques = {
+	{ "silk",              "oinc", 5  },
+    { "gears",             "oinc", 10 },
+    { "mandrake",          "oinc", 50 },
+    { "wormlight",         "oinc", 20 },
+    { "deerclops_eyeball", "oinc", 50 },
+    { "walrus_tusk",       "oinc", 50 },
+    { "bearger_fur",       "oinc", 40 },
+    { "goose_feather",     "oinc", 40 },
+    { "dragon_scales",     "oinc", 30 },
+    { "houndstooth",       "oinc", 5  },
+    { "bamboo",            "oinc", 3  },
+    { "horn",              "oinc", 5  },
+    { "coontail",          "oinc", 4  },
+	{ "inhaler_ninten",    "oinc", 50 },
 }
-AddComponentPostInit("stageactingprop", function(inst)
-	inst:AddGeneralScript("GRAMNINTEN1", SCRIPT_GRAMNINTEN1)
+--The way Klei handles shop inventories in Hamlet is actually horrible btw
+--Makes trying to add custom items to shops very painful and likely to break with other mods
+AddComponentPostInit("shopinterior", function(shopinterior)
+	--Modders. PLEASE do this method of saving the old function and calling it after your changes if you're gonna mess with PostInits
+	--I'm begging you
+	old_getnewproduct = shopinterior.GetNewProduct
+	shopinterior.GetNewProduct = function(self, shoptype)
+		if GLOBAL.GetPlayer().prefab == "graminten" and shoptype == "pig_shop_antiquities" then
+			if GLOBAL.GetAporkalypse() and GLOBAL.GetAporkalypse():GetFiestaActive() and _SHOPTYPES[shoptype.."_fiesta"] then
+				return old_getnewproduct
+			end
+			local itemset = GLOBAL.GetRandomItem(ninten_antiques)
+			return itemset
+		else
+			return old_getnewproduct(self, shoptype)
+		end
+	end
+end)
+
+--I need an event listener that catches ALL forms of door use
+--There doesn't seem to be one that catches going from one room to another, at least none that the player can listen to
+AddComponentPostInit("interiorspawner", function(interiorspawner)
+	old_fadeoutfinished = interiorspawner.FadeOutFinished
+	interiorspawner.FadeOutFinished = function(self, dont_fadein)
+		GLOBAL.GetPlayer():PushEvent("fadeout")
+		return old_fadeoutfinished(self, dont_fadein)
+	end
+end)
+
+--Need an event listener for going to sleep. Pestilence.
+AddComponentPostInit("sleepingbag", function(sleepingbag)
+	old_dosleep = sleepingbag.DoSleep
+	sleepingbag.DoSleep = function(self, doer)
+		doer:PushEvent("gotosleep")
+		return old_dosleep(self, doer)
+	end
 end)
 	
+STRINGS.RECIPE_DESC.BASEBALL_CAP_NINTEN = "A stylish hat to keep cool under."
+STRINGS.RECIPE_DESC.NINTENS_COAT = "A stylish coat to keep you warm."
+STRINGS.RECIPE_DESC.INHALER_NINTEN = "Subdues asthma attacks."	
+STRINGS.RECIPE_DESC.POWERSHIELD_NINTEN = "PSI Shield, but even better."
+STRINGS.RECIPE_DESC.FOUR_D_SLIP_O = "4D Slip, but even better."
+STRINGS.RECIPE_DESC.PSI_SHIELD_NINTEN = "Envelop yourself a psychokinetic shield."
+STRINGS.RECIPE_DESC.FOUR_D_SLIP = "Travel perpendicular to the 3rd Dimension."

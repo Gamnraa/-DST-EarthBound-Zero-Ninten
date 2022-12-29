@@ -6,11 +6,7 @@ local assets =
 }
 
 local function onequip(inst, owner)
-	if owner.components.skinner.skin_name == "ms_gramninten_summer" then
-		owner.AnimState:OverrideSymbol("swap_body", "nintens_coat", "swap_body_alt")
-	else
-		owner.AnimState:OverrideSymbol("swap_body", "nintens_coat", "swap_body")
-	end
+    owner.AnimState:OverrideSymbol("swap_body", "nintens_coat", "swap_body")
     inst.components.fueled:StartConsuming()
 end
 
@@ -24,7 +20,6 @@ local function fn()
 
     inst.entity:AddTransform()
     inst.entity:AddAnimState()
-    inst.entity:AddNetwork()
 
     MakeInventoryPhysics(inst)
 
@@ -34,16 +29,8 @@ local function fn()
 
     inst.foleysound = "dontstarve/movement/foley/trunksuit"
 
-    --waterproofer (from waterproofer component) added to pristine state for optimization
-    --inst:AddTag("waterproofer")
-
-    MakeInventoryFloatable(inst, "small", 0.1, 0.8)
-
-    inst.entity:SetPristine()
-
-    if not TheWorld.ismastersim then
-        return inst
-    end
+        --waterproofer (from waterproofer component) added to pristine state for optimization
+    inst:AddTag("waterproofer")
 
     inst:AddComponent("tradable")
 
@@ -63,15 +50,16 @@ local function fn()
     inst:AddComponent("insulator")
 
     inst:AddComponent("fueled")
-    inst.components.fueled.fueltype = FUELTYPE.USAGE
+    inst.components.fueled.fueltype = "USAGE"
     inst.components.fueled:InitializeFuelLevel(TUNING.NINTENS_COAT_PERISHTIME)
     inst.components.fueled:SetDepletedFn(inst.Remove)
 
-    MakeHauntableLaunch(inst)
 	
 	inst.components.equippable:SetOnEquip(onequip)
+	
 
-    inst.components.insulator:SetInsulation(TUNING.INSULATION_SMALL)
+	inst.components.insulator.insulation = TUNING.INSULATION_SMALL
+
 
     --inst:AddComponent("waterproofer")
     --inst.components.waterproofer:SetEffectiveness(TUNING.WATERPROOFNESS_SMALL)

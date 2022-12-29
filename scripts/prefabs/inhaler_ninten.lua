@@ -8,7 +8,6 @@ local function fn()
 
     inst.entity:AddTransform()
     inst.entity:AddAnimState()
-    inst.entity:AddNetwork()
 
     MakeInventoryPhysics(inst)
 
@@ -16,13 +15,6 @@ local function fn()
     inst.AnimState:SetBuild("ground_inhaler_ninten")
     inst.AnimState:PlayAnimation("idle")
 
-    MakeInventoryFloatable(inst)
-
-    inst.entity:SetPristine()
-
-    if not TheWorld.ismastersim then
-        return inst
-    end
 
     ---------------------
 	inst:AddComponent("finiteuses")
@@ -38,7 +30,6 @@ local function fn()
 	inst.inventory = inst.components.inventoryitem
 	inst.inventory.imagename = "inhaler_ninten"
 	inst.inventory.atlasname = "images/inventoryimages/inhaler_ninten.xml"
-	MakeHauntableLaunch(inst)
 
     return inst
 end

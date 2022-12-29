@@ -14,4 +14,8 @@ function NintenInhaler:UseInhaler(doer)
 	return true
 end
 
+function NintenInhaler:CollectInventoryActions(doer, actions)
+	table.insert(actions, ACTIONS.NINTEN_INHALER)
+end
+
 return NintenInhaler
