@@ -222,6 +222,7 @@ end
 		inst.components.inventoryitem.onputininventoryfn = function(inst, player)
 			if player.components.inventory then
 				local gowner = inst.components.inventoryitem:GetGrandOwner()
+				if not gowner then return end
 				if gowner.components.inventory and gowner.prefab ~= "gramninten" then
 					inst:DoTaskInTime(0.1, function()
 						gowner.components.inventory:DropItem(inst)
