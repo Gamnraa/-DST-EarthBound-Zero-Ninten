@@ -15,11 +15,9 @@ end
 local function onequip(inst, owner)
 	
 	if owner.prefab == "gramninten" then
-		if owner.components.skinner.skin_name == "ms_gramninten_summer" then
-			owner.AnimState:OverrideSymbol("swap_hat", "baseball_cap_ninten", "swap_hat_off_alt")
-		else
-			owner.AnimState:OverrideSymbol("swap_hat", "baseball_cap_ninten", "swap_hat_off")
-		end
+
+		owner.AnimState:OverrideSymbol("swap_hat", "baseball_cap_ninten", "swap_hat_off")
+		
 	elseif owner.prefab == "gramness" then
 		owner.AnimState:OverrideSymbol("swap_hat", "baseball_cap_ninten", "swap_hat_ness_l")
 		owner:ListenForEvent("locomote", equip_ness_check)
