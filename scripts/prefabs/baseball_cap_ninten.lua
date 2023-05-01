@@ -15,7 +15,7 @@ end
 local function onequip(inst, owner)
 	
 	if owner.prefab == "gramninten" then
-		if owner.components.skinner.skin_name == "ms_gramninten_summer" then
+		if owner.components.skinner and owner.components.skinner.skin_name == "ms_gramninten_summer" then
 			owner.AnimState:OverrideSymbol("swap_hat", "baseball_cap_ninten", "swap_hat_off_alt")
 		else
 			owner.AnimState:OverrideSymbol("swap_hat", "baseball_cap_ninten", "swap_hat_off")

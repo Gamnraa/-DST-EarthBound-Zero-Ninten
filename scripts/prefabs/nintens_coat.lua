@@ -6,7 +6,7 @@ local assets =
 }
 
 local function onequip(inst, owner)
-	if owner.components.skinner.skin_name == "ms_gramninten_summer" then
+	if owner.components.skinner and owner.components.skinner.skin_name == "ms_gramninten_summer" then
 		owner.AnimState:OverrideSymbol("swap_body", "nintens_coat", "swap_body_alt")
 	else
 		owner.AnimState:OverrideSymbol("swap_body", "nintens_coat", "swap_body")
