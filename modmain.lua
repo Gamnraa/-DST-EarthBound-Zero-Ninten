@@ -175,6 +175,7 @@ local USE_INHALER = AddAction("NINTEN_INHALER", "Use Inhaler", function(act)
 end)
 
 USE_INHALER.silent_fail = true
+USER_INHALER.mount_valid = true
 
 AddStategraphActionHandler("wilson", ActionHandler(GLOBAL.ACTIONS.NINTEN_INHALER, "dolongaction"))
 AddStategraphActionHandler("wilson_client", ActionHandler(GLOBAL.ACTIONS.NINTEN_INHALER, "dolongaction"))
