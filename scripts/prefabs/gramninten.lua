@@ -115,13 +115,6 @@ end
 -- This initializes for both the server and client. Tags can be added here.
 local common_postinit = function(inst) 
 	-- Minimap icon
-	inst.entity:AddLight()
-		inst.Light:Enable(true)
-        inst.Light:SetIntensity(.6)
-        inst.Light:SetRadius(8)
-        inst.Light:SetFalloff(3)
-        inst.Light:SetColour(1, 1, 0)
-		
 	inst.MiniMapEntity:SetIcon( "gramninten.tex" )
 	--inst:ListenForEvent("playeractivated", onPlayerSpawn)
 	inst:AddTag("nintencraft")
