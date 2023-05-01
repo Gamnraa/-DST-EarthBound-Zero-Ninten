@@ -161,7 +161,7 @@ AddStategraphPostInit("wilson", function(sg)
 		inst.sg.mem.localchainattack = not action.forced or nil
         if not (inst.sg:HasStateTag("attack") and action.target == inst.sg.statemem.attacktarget or inst.components.health:IsDead()) then
             local weapon = inst.components.combat ~= nil and inst.components.combat:GetWeapon() or nil
-			if weapon and weapon.prefab == "baseball_bat_ness" then
+			if weapon and weapon.prefab == "baseball_bat_ness" and inst.components.rider and not inst.components.rider:IsRiding() then
 				return "swing_bat"
 			else return oldattackhandler.deststate(inst, action)
 			end
@@ -175,7 +175,7 @@ AddStategraphPostInit("wilson_client", function(sg)
 		inst.sg.mem.localchainattack = not action.forced or nil
         if not (inst.sg:HasStateTag("attack") and action.target == inst.sg.statemem.attacktarget or GLOBAL.IsEntityDead(inst)) then
             local equip = inst.replica.inventory:GetEquippedItem(GLOBAL.EQUIPSLOTS.HANDS)
-			if equip and equip.prefab == "baseball_bat_ness" then
+			if equip and equip.prefab == "baseball_bat_ness" and inst.replica.rider and not inst.replica.rider:IsRiding() then
 				return "swing_bat"
 			else return oldattackhandler.deststate(inst, action)
 			end
