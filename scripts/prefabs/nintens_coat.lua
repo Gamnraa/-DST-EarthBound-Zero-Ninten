@@ -54,8 +54,8 @@ local function fn()
 
     inst:AddComponent("inventoryitem")
 	inst.inventory = inst.components.inventoryitem
-	inst.inventory.imagename = "nintens_coat"
-	inst.inventory.atlasname = "images/inventoryimages/nintens_coat.xml"
+	--inst.inventory.imagename = "nintens_coat"
+	--inst.inventory.atlasname = "images/inventoryimages/nintens_coat.xml"
 
     inst:AddComponent("equippable")
     inst.components.equippable.equipslot = EQUIPSLOTS.BODY

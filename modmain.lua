@@ -32,6 +32,9 @@ Assets = {
 	
 	Asset( "IMAGE", "bigportraits/ms_gramninten_summer.tex" ),
     Asset( "ATLAS", "bigportraits/ms_gramninten_summer.xml" ),
+
+	Asset( "IMAGE", "bigportraits/ms_gramninten_ken.tex" ),
+    Asset( "ATLAS", "bigportraits/ms_gramninten_ken.xml" ),
 	
 	Asset( "IMAGE", "images/map_icons/gramninten.tex" ),
 	Asset( "ATLAS", "images/map_icons/gramninten.xml" ),
@@ -74,6 +77,9 @@ Assets = {
 	
 	Asset( "IMAGE", "images/inventoryimages/baseball_bat_ness.tex" ),
     Asset( "ATLAS", "images/inventoryimages/baseball_bat_ness.xml" ),
+
+	Asset( "IMAGE", "images/inventoryimages/ms_nintens_coat_aviator.tex" ),
+	Asset( "ATLAS", "images/inventoryimages/ms_nintens_coat_aviator.xml" ),
 	
 	Asset("SOUNDPACKAGE", "sound/gramninten.fev"),
 	Asset("SOUND", "sound/gramninten.fsb"),
@@ -169,6 +175,9 @@ local skin_modes = {
 
 -- Add mod character to mod character list. Also specify a gender. Possible genders are MALE, FEMALE, ROBOT, NEUTRAL, and PLURAL.
 AddModCharacter("gramninten", "MALE", skin_modes)
+
+
+RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/nintens_coat.xml"), "nintens_coat.tex")
 
 
 --Inhaler stuff
