@@ -36,5 +36,23 @@ table.insert(prefabs, CreatePrefabSkin("ms_gramninten_summer", {
 	skin_tags = {"BASE", "GRAMNINTEN"},
 }))
 
+table.insert(prefabs, CreatePrefabSkin("ms_gramninten_ken", {
+	assets = {
+		Asset("ANIM", "anim/ms_gramninten_ken.zip"),
+		Asset("ANIM", "anim/ghost_gramninten.zip"),
+	},
+	
+	skins = {
+		normal_skin = "ms_gramninten_ken",
+		ghost_skin = "ghost_gramninten",
+	},
+	
+	base_prefab = "gramninten",
+	build_name_override = "ms_gramninten_ken",
+	type = "base",
+	rarity = "ModMade",
+	skin_tags = {"BASE", "GRAMNINTEN"},
+}))
+
 return unpack(prefabs)
 		

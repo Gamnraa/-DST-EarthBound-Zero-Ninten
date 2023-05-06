@@ -121,6 +121,10 @@ STRINGS.SKIN_NAMES.ms_gramninten_summer = "The Laidback"
 STRINGS.SKIN_DESCRIPTIONS.ms_gramninten_summer = "He doesn't seem to be taking this all too seriously. Although, when you're someone like Ninten, do you really have to?"
 STRINGS.SKIN_QUOTES.ms_gramninten_summer = "\"You see survival. I see a vacation.\""
 
+STRINGS.SKIN_NAMES.ms_gramninten_ken = "The Aviator"
+STRINGS.SKIN_DESCRIPTIONS.ms_gramninten_ken = "He may share the title of protagonist with the classic Ninten, just don't get this hothead confused with him!"
+STRINGS.SKIN_QUOTES.ms_gramninten_ken = "\"Ninten? What an idiotic name. Call me Ken.\""
+
 -- Custom speech strings
 STRINGS.CHARACTERS.GRAMNINTEN = require "speech_gramninten"
 
