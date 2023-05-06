@@ -125,6 +125,18 @@ STRINGS.SKIN_NAMES.ms_gramninten_ken = "The Aviator"
 STRINGS.SKIN_DESCRIPTIONS.ms_gramninten_ken = "He may share the title of protagonist with the classic Ninten, just don't get this hothead confused with him!"
 STRINGS.SKIN_QUOTES.ms_gramninten_ken = "\"Ninten? What an idiotic name. Call me Ken.\""
 
+STRINGS.SKIN_NAMES.ms_nintens_coat_aviator = "Aviator's Coat"
+STRINGS.SKIN_DESCRIPTIONS.ms_nintens_coat_aviator = "Ken is a bit of a nerd when it comes to Aviation. Just don't let him know I described him that way."
+RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/ms_nintens_coat_aviator.xml"), "ms_nintens_coat_aviator.tex")
+
+
+GLOBAL.nintens_coat_init_fn = function(inst, build_name)
+    GLOBAL.basic_init_fn(inst, build_name, "nintens_coat" )
+end
+
+GLOBAL.nintens_coat_clear_fn = function(inst)
+    GLOBAL.basic_clear_fn(inst, "nintens_coat" )
+end
 -- Custom speech strings
 STRINGS.CHARACTERS.GRAMNINTEN = require "speech_gramninten"
 

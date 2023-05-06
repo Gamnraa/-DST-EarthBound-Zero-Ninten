@@ -2,7 +2,7 @@
 name = "EarthBound Zero: Ninten"
 description = "Adds Ninten from EarthBound Beginnings to the game."
 author = "Lucas & Claus"
-version = "0.8.0"
+version = "1.0.0"
 
 -- This is the URL name of the mod's thread on the forum; the part after the ? and before the first & in the url
 forumthread = "/files/file/950-extended-sample-character/"

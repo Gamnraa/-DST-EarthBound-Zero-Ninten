@@ -3,6 +3,11 @@ local assets =
    Asset("ANIM", "anim/baseball_cap_ninten.zip"),
 }
 
+local ninten_skins = {
+    ["ms_gramninten_summer"] = "swap_hat_off_alt",
+    ["ms_gramniten_ken"] = "swap_hat_ken",
+}
+
 
 local function equip_ness_check(owner)
 	if owner.AnimState:GetCurrentFacing() == 2 then 
@@ -15,8 +20,8 @@ end
 local function onequip(inst, owner)
 	
 	if owner.prefab == "gramninten" then
-		if owner.components.skinner and owner.components.skinner.skin_name == "ms_gramninten_summer" then
-			owner.AnimState:OverrideSymbol("swap_hat", "baseball_cap_ninten", "swap_hat_off_alt")
+		if owner.components.skinner then
+			owner.AnimState:OverrideSymbol("swap_hat", "baseball_cap_ninten", ninten_skins[owner.components.skinner] or "swap_hat_off")
 		else
 			owner.AnimState:OverrideSymbol("swap_hat", "baseball_cap_ninten", "swap_hat_off")
 		end
