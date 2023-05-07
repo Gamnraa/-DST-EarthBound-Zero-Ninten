@@ -31,8 +31,8 @@ local function fn()
 
     MakeInventoryPhysics(inst)
 
-    inst.AnimState:SetBank("ground_nintens_coat")
-    inst.AnimState:SetBuild("ground_nintens_coat")
+    inst.AnimState:SetBank("nintens_coat")
+    inst.AnimState:SetBuild("nintens_coat")
     inst.AnimState:PlayAnimation("anim")
 
     inst.foleysound = "dontstarve/movement/foley/trunksuit"
