@@ -112,14 +112,6 @@ local function onload(inst, data)
     end
 end
 
--- This initializes for both the server and client. Tags can be added here.
-local common_postinit = function(inst) 
-	-- Minimap icon
-	inst.MiniMapEntity:SetIcon( "gramninten.tex" )
-	--inst:ListenForEvent("playeractivated", onPlayerSpawn)
-	inst:AddTag("nintencraft")
-end
-
 local function UpdateClothingSanity(inst)
 	local sanity = 0
 	local equip = inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD)
@@ -144,6 +136,22 @@ local function NintenOnEquip (inst, data)
 	end
 end
 
+local function OnBecomeKen(inst)
+	print("Ken")
+	if inst.components.skinner.skin_name == "ms_gramninten_ken" then
+		STRINGS.CHARACTERS.GRAMNINTEN = require "speech_gramken"
+	else
+		STRINGS.CHARACTERS.GRAMNINTEN = require "speech_gramninten"
+	end
+end
+
+-- This initializes for both the server and client. Tags can be added here.
+local common_postinit = function(inst) 
+	-- Minimap icon
+	inst.MiniMapEntity:SetIcon( "gramninten.tex" )
+	--inst:ListenForEvent("playeractivated", onPlayerSpawn)
+	inst:AddTag("nintencraft")
+end
 
 -- This initializes for the server only. Components are added here.
 local master_postinit = function(inst)
@@ -176,8 +184,9 @@ local master_postinit = function(inst)
 	
 	inst:ListenForEvent("equip", NintenOnEquip)
 	inst:ListenForEvent("killed", OnKill)
-	
-	
+
+	inst:ListenForEvent("onskinschanged", function() OnBecomeKen(inst) end)
+	OnBecomeKen(inst)
 end
 
 return MakePlayerCharacter("gramninten", prefabs, assets, common_postinit, master_postinit, start_inv)
