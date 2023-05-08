@@ -58,6 +58,24 @@ local function OnKill(inst, data)
 	end
 end
 
+local function OnBecomeKen(inst)
+	print("Ken")
+	if inst.components.skinner.skin_name == "ms_gramninten_ken" then
+		STRINGS.CHARACTERS.GRAMNINTEN = require "speech_gramken"
+	else
+		STRINGS.CHARACTERS.GRAMNINTEN = require "speech_gramninten"
+	end
+
+	STRINGS.CHARACTERS.GRAMNINTEN.DESCRIBE.BASEBALL_CAP_NINTEN = "My favorite baseball cap."
+	STRINGS.CHARACTERS.GRAMNINTEN.DESCRIBE.BASEBALL_BAT_NESS = "I'm a bit of a natural when it comes to baseball, heh."
+	STRINGS.CHARACTERS.GRAMNINTEN.DESCRIBE.NINTENS_COAT = "My coat! Pretty stylish, gotta say!"
+	STRINGS.CHARACTERS.GRAMNINTEN.DESCRIBE.INHALER_NINTEN = "My inhaler."
+	STRINGS.CHARACTERS.GRAMNINTEN.DESCRIBE.FOUR_D_SLIP = "I use that to get out of trouble!"
+	STRINGS.CHARACTERS.GRAMNINTEN.DESCRIBE.FOUR_D_SLIP_O = "It gets me out of trouble in a snap!"
+	STRINGS.CHARACTERS.GRAMNINTEN.DESCRIBE.PSI_SHIELD_NINTEN = "It protects me from getting seriously hurt!"
+	STRINGS.CHARACTERS.GRAMNINTEN.DESCRIBE.POWERSHIELD_NINTEN = "It protects me from getting seriously hurt!"
+end
+
 -- When the character is revived from human
 local function onbecamehuman(inst)
 	-- Set speed when not a ghost (optional)
@@ -110,6 +128,8 @@ local function onload(inst, data)
     else
         onbecamehuman(inst)
     end
+
+	inst:DoTaskInTime(0, function() OnBecomeKen(inst) end)
 end
 
 local function UpdateClothingSanity(inst)
@@ -133,15 +153,6 @@ local function NintenOnEquip (inst, data)
 	   --inst.components.inventory:Unequip(equip)
 	   inst:DoTaskInTime(.1, function()  inst.components.inventory:GiveItem(data.item) end)
 	   inst.components.talker:Say("I wouldn't be caught dead wearing something so tacky.")
-	end
-end
-
-local function OnBecomeKen(inst)
-	print("Ken")
-	if inst.components.skinner.skin_name == "ms_gramninten_ken" then
-		STRINGS.CHARACTERS.GRAMNINTEN = require "speech_gramken"
-	else
-		STRINGS.CHARACTERS.GRAMNINTEN = require "speech_gramninten"
 	end
 end
 
@@ -180,10 +191,7 @@ local master_postinit = function(inst)
 	inst:AddComponent("asthma")
 	
 	inst.OnLoad = onload
-    inst.OnNewSpawn = function(inst)
-		inst:DoTaskInTime(0, function() OnBecomeKen(inst) end)
-		onload(inst)
-	end
+    inst.OnNewSpawn = onload 
 	
 	inst:ListenForEvent("equip", NintenOnEquip)
 	inst:ListenForEvent("killed", OnKill)
