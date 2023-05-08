@@ -180,13 +180,16 @@ local master_postinit = function(inst)
 	inst:AddComponent("asthma")
 	
 	inst.OnLoad = onload
-    inst.OnNewSpawn = onload
+    inst.OnNewSpawn = function(inst)
+		inst:DoTaskInTime(0, function() OnBecomeKen(inst) end)
+		onload(inst)
+	end
 	
 	inst:ListenForEvent("equip", NintenOnEquip)
 	inst:ListenForEvent("killed", OnKill)
 
 	inst:ListenForEvent("onskinschanged", function() OnBecomeKen(inst) end)
-	OnBecomeKen(inst)
+	
 end
 
 return MakePlayerCharacter("gramninten", prefabs, assets, common_postinit, master_postinit, start_inv)
