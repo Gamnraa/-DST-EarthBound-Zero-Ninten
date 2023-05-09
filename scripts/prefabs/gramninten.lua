@@ -59,7 +59,6 @@ local function OnKill(inst, data)
 end
 
 local function OnBecomeKen(inst)
-	print("Ken")
 	if inst.components.skinner.skin_name == "ms_gramninten_ken" then
 		STRINGS.CHARACTERS.GRAMNINTEN = require "speech_gramken"
 	else
@@ -111,7 +110,7 @@ local function onload(inst, data)
     inst:ListenForEvent("ms_respawnedfromghost", onbecamehuman)
     inst:ListenForEvent("ms_becameghost", onbecameghost)
 	
-	if inst.components.skinner.skin_name == "ms_gramninten_summer" then
+	--if inst.components.skinner.skin_name == "ms_gramninten_summer" then
 		local equip = inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD)
 		if equip and equip.prefab == "baseball_cap_ninten" then
 			equip.components.equippable.onequipfn(equip, inst)
@@ -121,7 +120,7 @@ local function onload(inst, data)
 		if equip and equip.prefab == "nintens_coat" then
 			equip.components.equippable.onequipfn(equip, inst)
 		end
-	end
+	--end
 
     if inst:HasTag("playerghost") then
         onbecameghost(inst)
