@@ -1,5 +1,6 @@
 PrefabFiles = {
-	"gramninten_none"
+	"gramninten_none",
+    "nintens_coat"
 }
 
 Assets = {
@@ -29,6 +30,9 @@ Assets = {
 	
 	Asset( "IMAGE", "images/inventoryimages/inhaler_ninten.tex" ),
 	Asset( "ATLAS", "images/inventoryimages/inhaler_ninten.xml" ),
+
+    Asset( "IMAGE", "images/inventoryimages/ms_nintens_coat_aviator.tex" ),
+	Asset( "ATLAS", "images/inventoryimages/ms_nintens_coat_aviator.xml" ),
 }
 
 local STRINGS = GLOBAL.STRINGS
@@ -44,6 +48,18 @@ STRINGS.SKIN_QUOTES.ms_gramninten_summer = "\"You see survival. I see a vacation
 STRINGS.SKIN_NAMES.ms_gramninten_ken = "The Aviator"
 STRINGS.SKIN_DESCRIPTIONS.ms_gramninten_ken = "He may share the title of protagonist with the classic Ninten, just don't let this hothead, Ken, confused with him!"
 STRINGS.SKIN_QUOTES.ms_gramninten_ken = "\"Ninten? What an idiotic name. Call me Ken.\""
+
+STRINGS.SKIN_NAMES.ms_nintens_coat_aviator = "Aviation Coat"
+STRINGS.SKIN_DESCRIPTIONS.ms_nintens_coat_aviator = "Ken is a bit of a nerd when it comes to Aviation. Just don't let him know I described him that way."
+RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/ms_nintens_coat_aviator.xml"), "ms_nintens_coat_aviator.tex")
+
+GLOBAL.nintens_coat_init_fn = function(inst, build_name)
+    GLOBAL.basic_init_fn(inst, build_name, "nintens_coat" )
+end
+
+GLOBAL.nintens_coat_clear_fn = function(inst)
+    GLOBAL.basic_clear_fn(inst, "nintens_coat" )
+end
 
 STRINGS.CHARACTER_SURVIVABILITY.gramninten = "Grim"
 

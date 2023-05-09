@@ -131,7 +131,7 @@ STRINGS.SKIN_NAMES.ms_gramninten_ken = "The Aviator"
 STRINGS.SKIN_DESCRIPTIONS.ms_gramninten_ken = "He may share the title of protagonist with the classic Ninten, just don't get this hothead confused with him!"
 STRINGS.SKIN_QUOTES.ms_gramninten_ken = "\"Ninten? What an idiotic name. Call me Ken.\""
 
-STRINGS.SKIN_NAMES.ms_nintens_coat_aviator = "Aviator's Coat"
+STRINGS.SKIN_NAMES.ms_nintens_coat_aviator = "Aviation Coat"
 STRINGS.SKIN_DESCRIPTIONS.ms_nintens_coat_aviator = "Ken is a bit of a nerd when it comes to Aviation. Just don't let him know I described him that way."
 RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/ms_nintens_coat_aviator.xml"), "ms_nintens_coat_aviator.tex")
 
@@ -320,6 +320,7 @@ AddRecipeToFilter("inhaler_ninten", "RESTORATION")
 
 STRINGS.CHARACTERS.GRAMNINTEN.DESCRIBE.BASEBALL_CAP_NINTEN = "My favorite baseball cap."
 STRINGS.CHARACTERS.GRAMNINTEN.DESCRIBE.BASEBALL_BAT_NESS = "I'm a bit of a natural when it comes to baseball, heh."
+STRINGS.CHARACTERS.GRAMNINTEN.DESCRIBE.NINTENS_COAT = "My coat! Pretty stylish, gotta say!"
 
 
 local SCRIPT_GRAMNINTEN1 = {
