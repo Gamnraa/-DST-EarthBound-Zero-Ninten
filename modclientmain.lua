@@ -1,6 +1,5 @@
 PrefabFiles = {
 	"gramninten_none",
-    "nintens_coat"
 }
 
 Assets = {
