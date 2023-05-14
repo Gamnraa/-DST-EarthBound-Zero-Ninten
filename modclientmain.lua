@@ -14,6 +14,9 @@ Assets = {
 	
 	Asset( "IMAGE", "bigportraits/ms_gramninten_summer.tex" ),
     Asset( "ATLAS", "bigportraits/ms_gramninten_summer.xml" ),
+
+    Asset( "IMAGE", "bigportraits/ms_gramninten_ken.tex" ),
+    Asset( "ATLAS", "bigportraits/ms_gramninten_ken.xml" ),
 	
 	Asset( "IMAGE", "images/names_gold_gramninten.tex" ),
     Asset( "ATLAS", "images/names_gold_gramninten.xml" ),
@@ -45,7 +48,7 @@ STRINGS.SKIN_DESCRIPTIONS.ms_gramninten_summer = "He doesn't seem to be taking t
 STRINGS.SKIN_QUOTES.ms_gramninten_summer = "\"You see survival. I see a vacation.\""
 
 STRINGS.SKIN_NAMES.ms_gramninten_ken = "The Aviator"
-STRINGS.SKIN_DESCRIPTIONS.ms_gramninten_ken = "He may share the title of protagonist with the classic Ninten, just don't let this hothead, Ken, confused with him!"
+STRINGS.SKIN_DESCRIPTIONS.ms_gramninten_ken = "He may share the title of protagonist with the classic Ninten, just don't get this hothead, Ken, confused with him!"
 STRINGS.SKIN_QUOTES.ms_gramninten_ken = "\"Ninten? What an idiotic name. Call me Ken.\""
 
 STRINGS.SKIN_NAMES.ms_nintens_coat_aviator = "Aviation Coat"
