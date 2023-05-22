@@ -829,7 +829,7 @@ return {
 	ANNOUNCE_TALK_TO_PLANTS = 
 	{
         "You better grow so I can eat you.",
-        "Sup, feature meal?",
+        "Sup, future meal?",
 		"What a waste of time.",
         "This is embarassing.",
         "I've got better things to do!",					   
@@ -1497,7 +1497,7 @@ return {
 		TURF_DECIDUOUS = "It has a nice color to it.",
 		TURF_SANDY = "Sandy.",
 		TURF_BADLANDS = "Just some chunk of the earth.",
-		TURF_DESERTDIRT = "Some very dry ground..",
+		TURF_DESERTDIRT = "Some very dry ground.",
 		TURF_FUNGUS_GREEN = "Squishy.",
 		TURF_FUNGUS_RED = "How squishy.",
 		TURF_DRAGONFLY = "It's fireproof",
@@ -1576,7 +1576,7 @@ return {
 		BEARGER = "I've dealt with screaming toddlers that had a better temper than you.",
 		BEARGERVEST = "It's like a nice blanket!",
 		ICEPACK = "This would be great for long days on the baseball field.",
-		BEARGER_FUR = "That's some hefty fur..",
+		BEARGER_FUR = "That's some hefty fur.",
 		BEDROLL_STRAW = "I guess it counts as a bed.",
 		BEEQUEEN = "Hey, would anyone happen to have a giant oversized fly swatter?",
 		BEEQUEENHIVE = 
@@ -2171,7 +2171,7 @@ return {
 			BURNING = "Yeesh.",
 			REVIVING = "...Huh?",
 		},
-		HOUNDBONE = "Someone wasn't lucky..",
+		HOUNDBONE = "Someone wasn't lucky.",
 		HOUNDMOUND = "Those beasts live there.",
 		ICEBOX = "Nice, I'll be needing a fridge!",
 		ICEHAT = "You know what, I don't even care if I look tacky, it's too damn hot out!",
@@ -4431,7 +4431,7 @@ return {
         ROC_TAIL = "How'd you get so big?",
 
         GNATMOUND = "Gnats...",
-        GNAT = "Gnats..",
+        GNAT = "Gnats...",
         
         PORKLAND_INTRO = "Whatever, jerk.",
 
@@ -5606,7 +5606,7 @@ return {
         -- FARMING
         COMPOSTINGBIN =
         {
-            GENERIC = "I can't believe you're really making me do this..",
+            GENERIC = "I can't believe you're really making me do this.",
             WET = "It's a little on the wet side.",
             DRY = "Too dry.",
             BALANCED = "Just right. Happy?",
@@ -5785,7 +5785,7 @@ return {
 		CARNIVAL_PLAZA =
 		{
 			GENERIC = "Boooooring.",
-			LEVEL_2 = "We're getting there..",
+			LEVEL_2 = "We're getting there.",
 			LEVEL_3 = "Fun.",
 		},
 
