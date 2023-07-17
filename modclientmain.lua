@@ -38,6 +38,7 @@ Assets = {
 }
 
 local STRINGS = GLOBAL.STRINGS
+STRINGS.NAMES.NINTENS_COAT  = "Ninten's Coat"
 
 STRINGS.NAMES.GRAMNINTEN = "Ninten"
 STRINGS.SKIN_NAMES.gramninten_none = "Ninten"
