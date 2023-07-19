@@ -183,7 +183,7 @@ end
 		inst.components.inventoryitem.onputininventoryfn = function(inst, player)
 			if player.components.inventory then
 				local gowner = inst.components.inventoryitem:GetGrandOwner()
-				if gowner.components.inventory and gowner.prefab ~= "gramninten" then
+				if gowner.components.inventory and not (gowner:HasTag("nintencraft") or gowner:HasTag("lucastag")) then
 					inst:DoTaskInTime(0.1, function()
 						gowner.components.inventory:DropItem(inst)
 						if gowner:HasTag("player") then
