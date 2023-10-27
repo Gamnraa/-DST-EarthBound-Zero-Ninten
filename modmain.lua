@@ -340,4 +340,40 @@ local SCRIPT_GRAMNINTEN1 = {
 AddComponentPostInit("stageactingprop", function(inst)
 	inst:AddGeneralScript("GRAMNINTEN1", SCRIPT_GRAMNINTEN1)
 end)
-	
+
+
+--String experimentation
+function CreateDictionary(keytable, valuetable)
+    local newtable = {}
+    for k, v in pairs(valuetable) do
+		
+        if type(v) == "table" then
+            local inner_table = CreateDictionary(v, keytable[k])
+            for l, w in pairs(inner_table) do
+                newtable[l] = w
+            end
+        else
+        	if newtable[keytable[k]] then newtable[keytable[k]] = v end
+		end
+
+    end
+    return newtable
+end
+
+GLOBAL.UNIQUE_SKIN_DIALOGUE = {
+	["gramninten"] = {
+		["ms_gramninten_ken"] = CreateDictionary(require("speech_gramninten"), require("speech_gramken"))
+	}
+}
+
+AddComponentPostInit("talker", function(talker)
+	local old_say = talker.Say
+	talker.Say = function(self, script, ...)
+		if not self.inst.components.skinner then return old_say(self, script, ...) end
+		
+		if GLOBAL.UNIQUE_SKIN_DIALOGUE[self.inst.prefab] and GLOBAL.UNIQUE_SKIN_DIALOGUE[self.inst.prefab][self.inst.components.skinner.skin_name] then
+			script = GLOBAL.UNIQUE_SKIN_DIALOGUE[self.inst.prefab][self.inst.components.skinner.skin_name][script] or script
+		end
+		old_say(self, script, ...)
+	end
+end)

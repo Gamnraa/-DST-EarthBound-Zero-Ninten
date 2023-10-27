@@ -128,7 +128,7 @@ local function onload(inst, data)
         onbecamehuman(inst)
     end
 
-	inst:DoTaskInTime(0, function() OnBecomeKen(inst) end)
+	--inst:DoTaskInTime(0, function() OnBecomeKen(inst) end)
 end
 
 local function UpdateClothingSanity(inst)
@@ -195,7 +195,7 @@ local master_postinit = function(inst)
 	inst:ListenForEvent("equip", NintenOnEquip)
 	inst:ListenForEvent("killed", OnKill)
 
-	inst:ListenForEvent("onskinschanged", function() OnBecomeKen(inst) end)
+	--inst:ListenForEvent("onskinschanged", function() OnBecomeKen(inst) end)
 	
 end
 
