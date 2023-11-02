@@ -346,14 +346,14 @@ end)
 function CreateDictionary(keytable, valuetable)
     local newtable = {}
     for k, v in pairs(valuetable) do
+
 		
         if type(v) == "table" then
-            local inner_table = CreateDictionary(v, keytable[k])
+            local inner_table = CreateDictionary(keytable[k], v)
             for l, w in pairs(inner_table) do
                 newtable[l] = w
             end
         else
-        	print(k, v)
         	if keytable[k] then newtable[keytable[k]] = v end
 		end
 
