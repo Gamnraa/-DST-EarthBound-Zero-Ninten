@@ -353,7 +353,8 @@ function CreateDictionary(keytable, valuetable)
                 newtable[l] = w
             end
         else
-        	if newtable[keytable[k]] then newtable[keytable[k]] = v end
+        	print(k, v)
+        	if keytable[k] then newtable[keytable[k]] = v end
 		end
 
     end
@@ -371,6 +372,7 @@ AddComponentPostInit("talker", function(talker)
 	talker.Say = function(self, script, ...)
 		if not self.inst.components.skinner then return old_say(self, script, ...) end
 		
+		print(script)
 		if GLOBAL.UNIQUE_SKIN_DIALOGUE[self.inst.prefab] and GLOBAL.UNIQUE_SKIN_DIALOGUE[self.inst.prefab][self.inst.components.skinner.skin_name] then
 			script = GLOBAL.UNIQUE_SKIN_DIALOGUE[self.inst.prefab][self.inst.components.skinner.skin_name][script] or script
 		end
