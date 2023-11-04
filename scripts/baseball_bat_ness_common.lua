@@ -172,7 +172,7 @@ end)
 AddStategraphPostInit("wilson_client", function(sg)
 	local oldattackhandler = sg.actionhandlers[GLOBAL.ACTIONS.ATTACK]
 	sg.actionhandlers[GLOBAL.ACTIONS.ATTACK] = GLOBAL.ActionHandler(GLOBAL.ACTIONS.ATTACK, function(inst, action)
-		inst.sg.mem.localchainattack = not action.forced or nil
+		--inst.sg.mem.localchainattack = not action.forced or nil
         if not (inst.sg:HasStateTag("attack") and action.target == inst.sg.statemem.attacktarget or GLOBAL.IsEntityDead(inst)) then
             local equip = inst.replica.inventory:GetEquippedItem(GLOBAL.EQUIPSLOTS.HANDS)
 			if equip and equip.prefab == "baseball_bat_ness" and inst.replica.rider and not inst.replica.rider:IsRiding() then
