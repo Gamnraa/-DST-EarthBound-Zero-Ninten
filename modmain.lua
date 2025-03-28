@@ -36,6 +36,9 @@ Assets = {
 	Asset( "IMAGE", "bigportraits/ms_gramninten_ken.tex" ),
     Asset( "ATLAS", "bigportraits/ms_gramninten_ken.xml" ),
 	
+	Asset( "IMAGE", "bigportraits/ms_gramninten_halloween.tex" ),
+	Asset( "ATLAS", "bigportraits/ms_gramninten_halloween.xml" ),
+	
 	Asset( "IMAGE", "images/map_icons/gramninten.tex" ),
 	Asset( "ATLAS", "images/map_icons/gramninten.xml" ),
 	
@@ -80,6 +83,9 @@ Assets = {
 
 	Asset( "IMAGE", "images/inventoryimages/ms_nintens_coat_aviator.tex" ),
 	Asset( "ATLAS", "images/inventoryimages/ms_nintens_coat_aviator.xml" ),
+	
+	Asset( "IMAGE", "images/inventoryimages/ms_baseball_cap_ninten_halloween.tex" ),
+	Asset( "ATLAS", "images/inventoryimages/ms_baseball_cap_ninten_halloween.xml" ),
 	
 	Asset("SOUNDPACKAGE", "sound/gramninten.fev"),
 	Asset("SOUND", "sound/gramninten.fsb"),
@@ -135,6 +141,14 @@ STRINGS.SKIN_NAMES.ms_nintens_coat_aviator = "Aviation Coat"
 STRINGS.SKIN_DESCRIPTIONS.ms_nintens_coat_aviator = "Ken is a bit of a nerd when it comes to Aviation. Just don't let him know I described him that way."
 RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/ms_nintens_coat_aviator.xml"), "ms_nintens_coat_aviator.tex")
 
+STRINGS.SKIN_NAMES.ms_gramninten_halloween = "The Undead Gangster"
+STRINGS.SKIN_DESCRIPTIONS.ms_gramninten_halloween = "It may just be a costume, but beware, he bites anyways!"
+STRINGS.SKIN_QUOTES.ms_gramninten_halloween = "\"All I need is a Chicago Typewriter! Er, y'know, for typing, of course...\""
+
+STRINGS.SKIN_NAMES.ms_baseball_cap_ninten_halloween = "Tattered Fedora"
+STRINGS.SKIN_DESCRIPTIONS.ms_baseball_cap_ninten_halloween = "Any drab getup isn't complete without its complimentary fedora."
+RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/ms_baseball_cap_ninten_halloween.xml"), "ms_baseball_cap_ninten_halloween.tex")
+
 
 GLOBAL.nintens_coat_init_fn = function(inst, build_name)
     GLOBAL.basic_init_fn(inst, build_name, "nintens_coat" )
@@ -142,6 +156,15 @@ end
 
 GLOBAL.nintens_coat_clear_fn = function(inst)
     GLOBAL.basic_clear_fn(inst, "nintens_coat" )
+end
+
+
+GLOBAL.baseball_cap_ninten_init_fn = function(inst, build_name)
+    GLOBAL.basic_init_fn(inst, build_name, "baseball_cap_ninten" )
+end
+
+GLOBAL.baseball_cap_ninten_clear_fn = function(inst)
+    GLOBAL.basic_clear_fn(inst, "baseball_cap_ninten" )
 end
 -- Custom speech strings
 STRINGS.CHARACTERS.GRAMNINTEN = require "speech_gramninten"
@@ -178,6 +201,7 @@ AddModCharacter("gramninten", "MALE", skin_modes)
 
 
 RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/nintens_coat.xml"), "nintens_coat.tex")
+RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/baseball_cap_ninten.xml"), "baseball_cap_ninten.tex")
 
 
 --Inhaler stuff
@@ -220,6 +244,7 @@ AddClassPostConstruct("widgets/statusdisplays", function(self)
 end)
 
 modimport "scripts/baseball_bat_ness_common"
+modimport "scripts/strings"
 
 --Recipes
 local baseball_cap_recipe = AddRecipe("baseball_cap_ninten",
@@ -341,8 +366,10 @@ AddComponentPostInit("stageactingprop", function(inst)
 	inst:AddGeneralScript("GRAMNINTEN1", SCRIPT_GRAMNINTEN1)
 end)
 
-
 --String experimentation
+--Takes two tables and creates a third one
+--Where the values of table 1 becomes the key of table 3
+--and the values of table 2 becomes the value of table 3
 function CreateDictionary(keytable, valuetable)
     local newtable = {}
     for k, v in pairs(valuetable) do

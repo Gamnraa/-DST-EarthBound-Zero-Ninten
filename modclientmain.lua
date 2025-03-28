@@ -1,5 +1,7 @@
 PrefabFiles = {
 	"gramninten_none",
+	"nintens_coat",
+	"baseball_cap_ninten",
 }
 
 Assets = {
@@ -14,6 +16,9 @@ Assets = {
 	
 	Asset( "IMAGE", "bigportraits/ms_gramninten_summer.tex" ),
     Asset( "ATLAS", "bigportraits/ms_gramninten_summer.xml" ),
+	
+	Asset( "IMAGE", "bigportraits/ms_gramninten_halloween.tex" ),
+	Asset( "ATLAS", "bigportraits/ms_gramninten_halloween.xml" ),
 
     Asset( "IMAGE", "bigportraits/ms_gramninten_ken.tex" ),
     Asset( "ATLAS", "bigportraits/ms_gramninten_ken.xml" ),
@@ -56,12 +61,29 @@ STRINGS.SKIN_NAMES.ms_nintens_coat_aviator = "Aviation Coat"
 STRINGS.SKIN_DESCRIPTIONS.ms_nintens_coat_aviator = "Ken is a bit of a nerd when it comes to Aviation. Just don't let him know I described him that way."
 RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/ms_nintens_coat_aviator.xml"), "ms_nintens_coat_aviator.tex")
 
+STRINGS.SKIN_NAMES.ms_gramninten_halloween = "The Undead Gangster"
+STRINGS.SKIN_DESCRIPTIONS.ms_gramninten_halloween = "It may just be a costume, but beware, he bites anyways!"
+STRINGS.SKIN_QUOTES.ms_gramninten_halloween = "\"All I need is a Chicago Typewriter! Er, y'know, for typing, of course...\""
+
+STRINGS.SKIN_NAMES.ms_baseball_cap_ninten_halloween = "Tattered Fedora"
+STRINGS.SKIN_DESCRIPTIONS.ms_baseball_cap_ninten_halloween = "Any drab getup isn't complete without its complimentary fedora."
+RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/ms_baseball_cap_ninten_halloween.xml"), "ms_baseball_cap_ninten_halloween.tex")
+
 GLOBAL.nintens_coat_init_fn = function(inst, build_name)
     GLOBAL.basic_init_fn(inst, build_name, "nintens_coat" )
 end
 
 GLOBAL.nintens_coat_clear_fn = function(inst)
     GLOBAL.basic_clear_fn(inst, "nintens_coat" )
+end
+
+
+GLOBAL.baseball_cap_ninten_init_fn = function(inst, build_name)
+    GLOBAL.basic_init_fn(inst, build_name, "baseball_cap_ninten" )
+end
+
+GLOBAL.baseball_cap_ninten_clear_fn = function(inst)
+    GLOBAL.basic_clear_fn(inst, "baseball_cap_ninten" )
 end
 
 STRINGS.CHARACTER_SURVIVABILITY.gramninten = "Grim"

@@ -19,7 +19,16 @@ end
 
 local function onequip(inst, owner)
 	
-	if owner.prefab == "gramninten" then
+	local skin_build = inst:GetSkinBuild()
+	print(skin_build)
+	if skin_build and skin_build == "ms_baseball_cap_ninten_halloween" then
+		if owner.prefab == "gramninten" or owner.prefab == "gramness" then
+			owner.AnimState:OverrideItemSkinSymbol("swap_hat", skin_build, "swap_hat_off", inst.GUID, "baseball_cap_ninten")
+		else
+			owner.AnimState:OverrideItemSkinSymbol("swap_hat", skin_build, "swap_hat", inst.GUID, "baseball_cap_ninten")
+		end
+	
+	elseif owner.prefab == "gramninten" then
 		if owner.components.skinner then
 			owner.AnimState:OverrideSymbol("swap_hat", "baseball_cap_ninten", ninten_skins[owner.components.skinner.skin_name] or "swap_hat_off")
 		else
@@ -97,8 +106,8 @@ local function fn()
 
     inst:AddComponent("inventoryitem")
 	inst.inventory = inst.components.inventoryitem
-	inst.inventory.imagename = "baseball_cap_ninten"
-	inst.inventory.atlasname = "images/inventoryimages/baseball_cap_ninten.xml"
+	--inst.inventory.imagename = "baseball_cap_ninten"
+	--inst.inventory.atlasname = "images/inventoryimages/baseball_cap_ninten.xml"
     inst:AddComponent("inspectable")
 
     inst:AddComponent("tradable")
