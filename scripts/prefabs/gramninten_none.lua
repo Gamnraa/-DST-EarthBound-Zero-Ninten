@@ -86,7 +86,7 @@ table.insert(prefabs, CreatePrefabSkin("ms_nintens_coat_aviator", { --The ID of 
     skin_tags = {"NINTENSCOAT"}, --Skin tags, you should add a tag matching the original prefab of the item/structure we're adding a skin for in full capitalization
 }))
 
-table.insert(prefabs, CreatePrefabSkin("ms_nintens_coat_aviator", { --The ID of our skin
+table.insert(prefabs, CreatePrefabSkin("ms_baseball_cap_ninten_halloween", { --The ID of our skin
     assets = { --Our assets
         Asset( "ANIM", "anim/ms_baseball_cap_ninten_halloween.zip"),
     },
