@@ -152,10 +152,13 @@ local function onAttachedSpeed(inst, target)
 		inst.components.debuff:Stop()
 	end, target)
 
+	target.speedfx = SpawnPrefab("speed_up_fx")
+	target.speedfx.entity:SetParent(target.entity)
+
 	if target.components.workmultiplier then
-		target.components.workmultiplier:AddMultiplier(ACTIONS.CHOP, 1.34, "nintenspeedup")
-		target.components.workmultiplier:AddMultiplier(ACTIONS.MINE, 1.34, "nintenspeedup")
-		target.components.workmultiplier:AddMultiplier(ACTIONS.HAMMER, 1.34, "nintenspeedup")
+		target.components.workmultiplier:AddMultiplier(ACTIONS.CHOP, 0.67, "nintenspeedup")
+		target.components.workmultiplier:AddMultiplier(ACTIONS.MINE, 0.67, "nintenspeedup")
+		target.components.workmultiplier:AddMultiplier(ACTIONS.HAMMER, 0.67, "nintenspeedup")
 	end
 
 	if target.components.locomotor then
@@ -222,8 +225,8 @@ end
 		inst.AnimState:PlayAnimation("idle")
 		
 		if name == "speed_up_ninten" then
-			inst.AnimState:SetBank("ground_offense_up_ness")
-			inst.AnimState:SetBuild("ground_offense_up_ness")
+			inst.AnimState:SetBank("ground_offense_up")
+			inst.AnimState:SetBuild("ground_offense_up")
 			inst.AnimState:SetAddColour(1, 175/255, 251/255, 0)
 		end
 
