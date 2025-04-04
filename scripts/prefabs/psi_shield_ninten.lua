@@ -309,6 +309,10 @@ STRINGS.CHARACTERS.GENERIC.DESCRIBE.POWERSHIELD_NINTEN = "I don't even know what
 STRINGS.CHARACTERS.WX78.DESCRIBE.POWERSHIELD_NINTEN = "ERROR. UNDEFINED OBJECT"
 STRINGS.CHARACTERS.GRAMNINTEN.DESCRIBE.POWERSHIELD_NINTEN = "It protects me from getting seriously hurt!"
 
+
+STRINGS.NAMES.SPEED_UP_NINTEN = "Speed Up"
+STRINGS.CHARACTERS.GRAMNINTEN.DESCRIBE.SPEED_UP_NINTEN = "It'll make me faster than ever!"
+
 return createShield("psi_shield_ninten", canShield),
 	   createShield("powershield_ninten", canShield),
 	   createShield("speed_up_ninten", canSpeedUp),

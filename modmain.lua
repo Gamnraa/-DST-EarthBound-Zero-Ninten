@@ -352,6 +352,7 @@ AddCharacterRecipe("four_d_slip",
 		"MAGIC",
 	})
 STRINGS.RECIPE_DESC.FOUR_D_SLIP = "Travel perpendicular to 3D space."
+
 AddCharacterRecipe("speed_up_ninten",
 	{Ingredient("purplegem", 1),
 	 Ingredient("yellowgem", 1),
@@ -367,6 +368,7 @@ AddCharacterRecipe("speed_up_ninten",
 	{
 		"MAGIC",
 	})
+STRINGS.RECIPE_DESC.SPEED_UP_NINTEN = "Enhance your speed."
 
 AddRecipeToFilter("baseball_cap_ninten", "CLOTHING")
 AddRecipeToFilter("baseball_cap_ninten", "SUMMER")
