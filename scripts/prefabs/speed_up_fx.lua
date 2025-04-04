@@ -1,6 +1,6 @@
 local assets =
 {
-    Asset("ANIM", "anim/offense_up_fx.zip")
+    Asset("ANIM", "anim/speed_up_fx.zip")
 }
 
 local function fn()
@@ -10,8 +10,8 @@ local function fn()
     inst.entity:AddNetwork()
 	inst.entity:AddSoundEmitter()
 	inst.entity:AddAnimState()
-	inst.AnimState:SetBank("offense_up_fx")
-    inst.AnimState:SetBuild("offense_up_fx")
+	inst.AnimState:SetBank("speed_up_fx")
+    inst.AnimState:SetBuild("speed_up_fx")
 	inst:DoTaskInTime(0, function() inst.SoundEmitter:PlaySound("psisfx/psisfx/offenseup") end)
 	inst.AnimState:PlayAnimation("anim")
     inst.AnimState:SetAddColour(1/255, 175/255, 251/255, 0)
