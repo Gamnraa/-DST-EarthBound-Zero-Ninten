@@ -14,7 +14,7 @@ local function fn()
     inst.AnimState:SetBuild("offense_up_fx")
 	inst:DoTaskInTime(0, function() inst.SoundEmitter:PlaySound("psisfx/psisfx/offenseup") end)
 	inst.AnimState:PlayAnimation("anim")
-    inst.AnimState:SetAddColour(1, 175/255, 251/255, 0)
+    inst.AnimState:SetAddColour(1/255, 175/255, 251/255, 0)
     inst:AddTag("FX")
 
     inst.entity:SetPristine()

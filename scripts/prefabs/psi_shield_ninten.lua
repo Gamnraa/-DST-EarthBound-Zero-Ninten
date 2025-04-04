@@ -4,6 +4,8 @@ local assets =
     Asset("ANIM", "anim/swap_psi_shield_ninten.zip"),
 	Asset("ANIM", "anim/ground_powershield_ninten.zip"),
 	Asset("ANIM", "anim/swap_powershield_ninten.zip"),
+	Asset("ANIM", "anim/swap_offense_up_ness.zip"),
+    Asset("ANIM", "anim/ground_offense_up.zip"),
 }
 
 local shieldLines = {
@@ -227,7 +229,7 @@ end
 		if name == "speed_up_ninten" then
 			inst.AnimState:SetBank("ground_offense_up")
 			inst.AnimState:SetBuild("ground_offense_up")
-			inst.AnimState:SetAddColour(1, 175/255, 251/255, 0)
+			inst.AnimState:SetAddColour(1/255, 175/255, 251/255, 0)
 		end
 
 		if not TheWorld.ismastersim then
