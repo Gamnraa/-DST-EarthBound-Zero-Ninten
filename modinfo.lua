@@ -1,8 +1,8 @@
 -- This information tells other players more about the mod
-name = "EarthBound Zero: Ninten"
+name = "(DEV) EarthBound Zero: Ninten"
 description = "Adds Ninten from EarthBound Beginnings to the game."
 author = "Lucas & Claus"
-version = "1.0.0"
+version = "0.4.0" -- This is the version of the template. Change it to your own number.
 
 -- This is the URL name of the mod's thread on the forum; the part after the ? and before the first & in the url
 forumthread = "/files/file/950-extended-sample-character/"
@@ -129,17 +129,6 @@ configuration_options = {
 			--Don't worry about it
 			{description = "On (default)", data = false},
 			{description = "Off", data = true}
-		},
-		default = false,
-	},
-	{
-		name = "GRAMNINTEN_ASTHMA_OVERLAY",
-		label = "Toggle Asthma Overlay",
-		hover = "Toggle if Ninten's risk of an asthma attack will display",
-		options =
-		{
-			{description = "On (default)", data = true},
-			{description = "Off", data = false}
 		},
 		default = false,
 	}

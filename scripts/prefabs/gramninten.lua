@@ -180,8 +180,6 @@ local master_postinit = function(inst)
 	inst.components.sanity:SetMax(TUNING.GRAMNINTEN_SANITY)
 	inst.components.sanity.custom_rate_fn = UpdateClothingSanity
 	
-	   
-	
 	-- Damage multiplier (optional)
     inst.components.combat.damagemultiplier = 1
 	

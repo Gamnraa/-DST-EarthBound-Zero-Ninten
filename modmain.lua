@@ -130,16 +130,24 @@ STRINGS.CHARACTER_SURVIVABILITY.gramninten = "Grim"
 STRINGS.SKIN_DESCRIPTIONS.gramninten_none = "Ninten's favorite outfit."
 
 STRINGS.SKIN_NAMES.ms_gramninten_summer = "The Laidback"
-STRINGS.SKIN_DESCRIPTIONS.ms_gramninten_summer = "He doesn't seem to be taking this all too seriously. Although, when you're someone like Ninten, do you really have to?"
+STRINGS.SKIN_DESCRIPTIONS.ms_gramninten_summer = "Tourist attire from Ellay. He doesn't seem to be taking this all too seriously. Although, when you're someone like Ninten, do you really have to?"
 STRINGS.SKIN_QUOTES.ms_gramninten_summer = "\"You see survival. I see a vacation.\""
 
 STRINGS.SKIN_NAMES.ms_gramninten_ken = "The Aviator"
-STRINGS.SKIN_DESCRIPTIONS.ms_gramninten_ken = "He may share the title of protagonist with the classic Ninten, just don't get this hothead confused with him!"
+STRINGS.SKIN_DESCRIPTIONS.ms_gramninten_ken = "Attire of the hot-headed Ken, headband and all. Don't get him confused with Ninten!"
 STRINGS.SKIN_QUOTES.ms_gramninten_ken = "\"Ninten? What an idiotic name. Call me Ken.\""
 
 STRINGS.SKIN_NAMES.ms_nintens_coat_aviator = "Aviation Coat"
-STRINGS.SKIN_DESCRIPTIONS.ms_nintens_coat_aviator = "Ken is a bit of a nerd when it comes to Aviation. Just don't let him know I described him that way."
+STRINGS.SKIN_DESCRIPTIONS.ms_nintens_coat_aviator = "A replica US Air Force aviation coat worn by Ken."
 RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/ms_nintens_coat_aviator.xml"), "ms_nintens_coat_aviator.tex")
+
+STRINGS.SKIN_NAMES.ms_gramninten_batter = "The Star Pitcher"
+STRINGS.SKIN_DESCRIPTIONS.ms_gramninten_batter = "The vibrant colors of the Podunk Canaries help players stand out despite the attire's simple design."
+STRINGS.SKIN_QUOTES.ms_gramninten_batter = "\"No one gets past me on my A-game.\""
+
+STRINGS.SKIN_NAMES.ms_gramninten_kenbatter = "The Star Catcher"
+STRINGS.SKIN_DESCRIPTIONS.ms_gramninten_kenbatter = "The vibrant colors of the Podunk Canaries help players stand out despite the attire's simple design. Complimentary catcher padding to boot."
+STRINGS.SKIN_QUOTES.ms_gramninten_kenbatter = "\"Let's get one thing clear: you are all nothing without me.\""
 
 STRINGS.SKIN_NAMES.ms_gramninten_halloween = "The Undead Gangster"
 STRINGS.SKIN_DESCRIPTIONS.ms_gramninten_halloween = "It may just be a costume, but beware, he bites anyways!"
@@ -388,9 +396,12 @@ function CreateDictionary(keytable, valuetable)
     return newtable
 end
 
+local ken_dial = CreateDictionary(require("speech_gramninten"), require("speech_gramken"))
+
 GLOBAL.UNIQUE_SKIN_DIALOGUE = {
 	["gramninten"] = {
-		["ms_gramninten_ken"] = CreateDictionary(require("speech_gramninten"), require("speech_gramken"))
+		["ms_gramninten_ken"] = ken_dial,
+		["ms_gramninten_kenbatter"] = ken_dial,
 	}
 }
 
