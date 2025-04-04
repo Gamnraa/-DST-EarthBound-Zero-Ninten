@@ -120,6 +120,21 @@ configuration_options = {
 		default = 40,
 	},
 	{
+		name = "GRAMNINTEN_SPEED_UP_SANITY",
+		label = "PSI Shield Cost",
+		hover = "How much sanity it costs Ninten to use Speed Up",
+		options = 
+		{
+			{description = "None", data = 0},
+			{description = "10", data = 10},
+			{description = "20", data = 20},
+			{description = "30", data = 30},
+			{description = "40 (default)", data = 40},
+			{description = "50", data = 50},
+		},
+		default = 40,
+	},
+	{
 		name = "GRAMNINTEN_ASTHMA",
 		label = "Toggle Ninten's Asthma",
 		hover = "Toggle if Ninten will suffer from asthma.",

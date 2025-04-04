@@ -10,6 +10,7 @@ PrefabFiles = {
 	"baseball_cap_ninten",
 	"shield_fx",
 	"counter_fx",
+	"speed_up_fx",
 	"baseball_bat_ness",
 	--"baseball_ninten", --shhhhh
 }
@@ -35,6 +36,12 @@ Assets = {
 
 	Asset( "IMAGE", "bigportraits/ms_gramninten_ken.tex" ),
     Asset( "ATLAS", "bigportraits/ms_gramninten_ken.xml" ),
+
+	Asset( "IMAGE", "bigportraits/ms_gramninten_batter.tex" ),
+    Asset( "ATLAS", "bigportraits/ms_gramninten_batter.xml" ),
+
+	Asset( "IMAGE", "bigportraits/ms_gramninten_kenbatter.tex" ),
+    Asset( "ATLAS", "bigportraits/ms_gramninten_kenbatter.xml" ),
 	
 	Asset( "IMAGE", "bigportraits/ms_gramninten_halloween.tex" ),
 	Asset( "ATLAS", "bigportraits/ms_gramninten_halloween.xml" ),
@@ -86,11 +93,18 @@ Assets = {
 	
 	Asset( "IMAGE", "images/inventoryimages/ms_baseball_cap_ninten_halloween.tex" ),
 	Asset( "ATLAS", "images/inventoryimages/ms_baseball_cap_ninten_halloween.xml" ),
+
+
+	Asset( "IMAGE", "images/inventoryimages/speed_up_ninten.tex" ),
+	Asset( "ATLAS", "images/inventoryimages/speed_up_ninten.xml" ),
+
 	
 	Asset("SOUNDPACKAGE", "sound/gramninten.fev"),
 	Asset("SOUND", "sound/gramninten.fsb"),
 	Asset("SOUNDPACKAGE", "sound/psishield.fev"),
 	Asset("SOUND", "sound/psishield.fsb"),
+	Asset("SOUNDPACKAGE", "sound/psisfx.fev"),
+	Asset("SOUND", "sound/psisfx.fsb"),
 	
 	Asset("ANIM", "anim/anim_gramninten.zip"),
 }
@@ -189,6 +203,7 @@ TUNING.ASTHMA_THRESHOLD = GetModConfigData("GRAMNINTEN_ASTHMA") or 2000
 TUNING.SHOW_ASTHMA_OVERLAY = GetModConfigData("GRAMNINTEN_ASTHMA_OVERLAY")
 TUNING.GRAMNINTEN_4DSLIP_SANITY = GetModConfigData("GRAMNINTEN_4D_SLIP_SANITY")
 TUNING.GRAMNINTEN_PSI_SHIELD_SANITY = GetModConfigData("GRAMNINTEN_PSI_SHIELD_SANITY")
+TUNING.GRAMNINTEN_SPEED_UP_SANITY = GetModConfigData("GRAMNINTEN_PSI_SHIELD_SANITY")
 TUNING.NINTENS_COAT_PERISHTIME = 30 * 16 * 22 --22 days
 TUNING.BASEBALL_CAP_PERISHTIME = 30 * 16 * 12 --12 days
 
@@ -337,6 +352,21 @@ AddCharacterRecipe("four_d_slip",
 		"MAGIC",
 	})
 STRINGS.RECIPE_DESC.FOUR_D_SLIP = "Travel perpendicular to 3D space."
+AddCharacterRecipe("speed_up_ninten",
+	{Ingredient("purplegem", 1),
+	 Ingredient("yellowgem", 1),
+	 Ingredient(GLOBAL.CHARACTER_INGREDIENT.SANITY, 50)},
+	GLOBAL.TECH.MAGIC_THREE,
+	{
+		product = "speed_up_ninten",
+		builder_tag = "nintencraft",
+		numtogive = 1,
+		atlas = "images/inventoryimages/speed_up_ninten.xml",
+		image = "speed_up_ninten.tex"
+	},
+	{
+		"MAGIC",
+	})
 
 AddRecipeToFilter("baseball_cap_ninten", "CLOTHING")
 AddRecipeToFilter("baseball_cap_ninten", "SUMMER")

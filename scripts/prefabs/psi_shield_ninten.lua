@@ -9,6 +9,12 @@ local assets =
 local shieldLines = {
   "PSI Shield!"
 }
+
+local speedLines = {
+	"Keep up, if you can!",
+	"See ya!",
+	"Too slow!",
+}
 	
 local function onequip(inst, owner)
     owner.AnimState:OverrideSymbol("swap_object", "swap_" .. inst.prefab, "swap_" .. inst.prefab)
@@ -82,6 +88,24 @@ local function removeShield(inst, target)
 	end)
 end
 
+local function removeSpeed(inst, target)
+	if target.components.workmultiplier then
+		target.components.workmultiplier:AddMultiplier(ACTIONS.CHOP, 1.00, "nintenspeedup")
+		target.components.workmultiplier:AddMultiplier(ACTIONS.MINE, 1.00, "nintenspeedup")
+		target.components.workmultiplier:AddMultiplier(ACTIONS.HAMMER, 1.00, "nintenspeedup")
+	end
+
+	if target.components.locomotor then
+		target.components.locomotor:SetExternalSpeedMultiplier(target, "nintenspeedup", 1.00)
+	end
+
+	if target.components.talker then	
+		target.components.talker:Say("Well that's over with.")
+	end
+
+	inst:Remove()
+end
+
 local function onAttached(inst, target)
 	inst.entity:SetParent(target.entity)
 	inst.Transform:SetPosition(0, 0, 0)
@@ -121,6 +145,45 @@ local function onTimerDone(inst, data)
 	end
 end
 
+local function onAttachedSpeed(inst, target)
+	inst.entity:SetParent(target.entity)
+	inst.Transform:SetPosition(0, 0, 0)
+	inst:ListenForEvent("death", function()
+		inst.components.debuff:Stop()
+	end, target)
+
+	if target.components.workmultiplier then
+		target.components.workmultiplier:AddMultiplier(ACTIONS.CHOP, 1.34, "nintenspeedup")
+		target.components.workmultiplier:AddMultiplier(ACTIONS.MINE, 1.34, "nintenspeedup")
+		target.components.workmultiplier:AddMultiplier(ACTIONS.HAMMER, 1.34, "nintenspeedup")
+	end
+
+	if target.components.locomotor then
+		target.components.locomotor:SetExternalSpeedMultiplier(target, "nintenspeedup", 1.25)
+	end
+end
+
+
+
+local function canSpeedUp(inst, target)
+	local caster = inst.components.inventoryitem.owner	
+    if caster.components.sanity.current >= TUNING.GRAMNINTEN_SPEED_UP_SANITY then
+		if target.speedfx then
+			if caster == target then
+				caster.components.talker:Say("I've got a shield already.")
+				return
+			end
+			caster.components.talker:Say("They've got a shield already.")
+			return
+		end
+		caster.components.sanity:DoDelta(-TUNING.GRAMNINTEN_SPEED_UP_SANITY)
+		caster.components.talker:Say(speedLines[math.random(#speedLines)])
+		target:AddDebuff("buff_" .. inst.prefab, "buff_" .. inst.prefab)
+	else 
+		caster.components.talker:Say("I can't concentrate!")	  
+    end
+end
+
 -----------------------------------------
 -- Function that calls when the player attempts to cast a spell with PSI Shield
 -- inst - the object instance (The PSI Shield item)
@@ -146,7 +209,7 @@ local function canShield(inst, target)
  
 end 
 
- local function createShield(name)
+ local function createShield(name, spellfn)
 	local function fn()
 		local inst = CreateEntity()
 		inst.entity:AddTransform()
@@ -157,13 +220,20 @@ end
 		inst.AnimState:SetBank("ground_" .. name)
 		inst.AnimState:SetBuild("ground_" .. name)
 		inst.AnimState:PlayAnimation("idle")
+		
+		if name == "speed_up_ninten" then
+			inst.AnimState:SetBank("ground_offense_up_ness")
+			inst.AnimState:SetBuild("ground_offense_up_ness")
+			inst.AnimState:SetAddColour(1, 175/255, 251/255, 0)
+		end
+
 		if not TheWorld.ismastersim then
 			return inst
 		end
 		inst.entity:SetPristine()
 		
 		inst:AddComponent("spellcaster")	
-		inst.components.spellcaster:SetSpellFn(canShield)
+		inst.components.spellcaster:SetSpellFn(spellfn)
 		inst.components.spellcaster.canuseontargets = true	
 		inst.components.spellcaster.canonlyuseonlocomotors = true
 		inst.components.spellcaster.canonlyuseoncombat = true
@@ -240,9 +310,11 @@ STRINGS.CHARACTERS.GENERIC.DESCRIBE.POWERSHIELD_NINTEN = "I don't even know what
 STRINGS.CHARACTERS.WX78.DESCRIBE.POWERSHIELD_NINTEN = "ERROR. UNDEFINED OBJECT"
 STRINGS.CHARACTERS.GRAMNINTEN.DESCRIBE.POWERSHIELD_NINTEN = "It protects me from getting seriously hurt!"
 
-return createShield("psi_shield_ninten"),
-	   createShield("powershield_ninten"),
+return createShield("psi_shield_ninten", canShield),
+	   createShield("powershield_ninten", canShield),
+	   createShield("speed_up_ninten", canSpeedUp),
 	   makeBuff("buff_psi_shield_ninten", onAttached, removeShield, 120, 1, {"shield_fx"}),
-	   makeBuff("buff_powershield_ninten", onAttachedPower, removeShield, 300, 1, {"counter_fx"})
+	   makeBuff("buff_powershield_ninten", onAttachedPower, removeShield, 300, 1, {"counter_fx"}),
+	   makeBuff("buff_speed_up_ninten", onAttachedSpeed, removeSpeed, 120, 1, {"speed_up_fx"})
 
 
