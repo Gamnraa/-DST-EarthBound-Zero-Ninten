@@ -179,10 +179,10 @@ local function canSpeedUp(inst, target)
     if caster.components.sanity.current >= TUNING.GRAMNINTEN_SPEED_UP_SANITY then
 		if target.speedfx then
 			if caster == target then
-				caster.components.talker:Say("I've got a shield already.")
+				caster.components.talker:Say("I've got Speed Up already.")
 				return
 			end
-			caster.components.talker:Say("They've got a shield already.")
+			caster.components.talker:Say("They've got Speed Up already.")
 			return
 		end
 		caster.components.sanity:DoDelta(-TUNING.GRAMNINTEN_SPEED_UP_SANITY)
@@ -322,6 +322,6 @@ return createShield("psi_shield_ninten", canShield),
 	   createShield("speed_up_ninten", canSpeedUp),
 	   makeBuff("buff_psi_shield_ninten", onAttached, removeShield, 120, 1, {"shield_fx"}),
 	   makeBuff("buff_powershield_ninten", onAttachedPower, removeShield, 300, 1, {"counter_fx"}),
-	   makeBuff("buff_speed_up_ninten", onAttachedSpeed, removeSpeed, 120, 1, {"speed_up_fx"})
+	   makeBuff("buff_speed_up_ninten", onAttachedSpeed, removeSpeed, 150, 1, {"speed_up_fx"})
 
 
