@@ -105,6 +105,10 @@ local function removeSpeed(inst, target)
 		target.components.talker:Say("Well that's over with.")
 	end
 
+	target:DoTaskInTime(0, function()
+		target.speedfx = nil
+	end)
+
 	inst:Remove()
 end
 
