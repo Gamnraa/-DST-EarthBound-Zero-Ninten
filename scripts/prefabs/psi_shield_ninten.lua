@@ -162,9 +162,9 @@ local function onAttachedSpeed(inst, target)
 	target.speedfx.entity:SetParent(target.entity)
 
 	if target.components.workmultiplier then
-		target.components.workmultiplier:AddMultiplier(ACTIONS.CHOP, 0.67, "nintenspeedup")
-		target.components.workmultiplier:AddMultiplier(ACTIONS.MINE, 0.67, "nintenspeedup")
-		target.components.workmultiplier:AddMultiplier(ACTIONS.HAMMER, 0.67, "nintenspeedup")
+		target.components.workmultiplier:AddMultiplier(ACTIONS.CHOP, 1.50, "nintenspeedup")
+		target.components.workmultiplier:AddMultiplier(ACTIONS.MINE, 1.50, "nintenspeedup")
+		target.components.workmultiplier:AddMultiplier(ACTIONS.HAMMER, 1.50, "nintenspeedup")
 	end
 
 	if target.components.locomotor then
