@@ -278,7 +278,7 @@ local function makeBuff(name, attachedfn, detachedfn, duration, priority, prefab
 		
 		if not TheWorld.ismastersim then
 			inst:DoTaskInTime(0, inst.Remove)
-			return isnt
+			return inst
 		end
 		inst.entity:AddTransform()
 
