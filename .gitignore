@@ -39,3 +39,12 @@ luac.out
 *.x86_64
 *.hex
 
+#art files
+*.png
+*.tex
+*.scml
+*.xml
+*.zip
+*.fev
+*.fsb
+*.txt
