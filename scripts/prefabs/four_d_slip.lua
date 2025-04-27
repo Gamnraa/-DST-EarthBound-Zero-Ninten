@@ -28,6 +28,33 @@ local function onunequip(inst, owner)
     owner.AnimState:Show("ARM_normal")
 end
 
+
+local function onattached(inst, target)
+	target.components.locomotor.walkspeed = (TUNING.WILSON_WALK_SPEED * 1.5)
+	target.components.locomotor.runspeed = (TUNING.WILSON_RUN_SPEED * 1.5)
+	inst:ListenForEvent("death", function()
+		inst.components.debuff:Stop()
+	end, target)
+end
+
+local function ondetached(inst, target)
+	target.components.locomotor.walkspeed = (TUNING.WILSON_WALK_SPEED)
+	target.components.locomotor.runspeed = (TUNING.WILSON_RUN_SPEED)
+	inst:Remove()
+end
+
+
+local function onextended(inst, target)
+	inst.components.timer:StopTimer("buffover")
+	inst.components.timer:StartTimer("buffover", 30)
+end
+
+local function onTimerDone(inst, data)
+	if data.name == "buffover" then
+		inst.components.debuff:Stop()
+	end
+end
+
 ----------------------------------------
 -- Function that is called when the player successfully performs a 4D Slip
 -- inst - the object instance (The 4D Slip item)
@@ -39,19 +66,7 @@ local function doSlip(inst, target, pos)
 	caster.Transform:SetPosition(pos.x, pos.y, pos.z)
 	
 	if inst.prefab == "four_d_slip_o" then
-		caster.components.locomotor.walkspeed = (TUNING.WILSON_WALK_SPEED * 1.5)
-		caster.components.locomotor.runspeed = (TUNING.WILSON_RUN_SPEED * 1.5)
-		--For time stacking
-		if slipBuffTime > 0 then
-			slipBuffTime = GetTaskRemaining(slipBuffTask)
-			slipBuffTask:Cancel()
-		end
-		slipBuffTime = slipBuffTime + 30
-		slipBuffTask = caster:DoTaskInTime(slipBuffTime, function()
-			slipBuffTime = 0
-			caster.components.locomotor.walkspeed = (TUNING.WILSON_WALK_SPEED)
-			caster.components.locomotor.runspeed = (TUNING.WILSON_RUN_SPEED)
-		end)
+		caster:AddDebuff("slipbuff", "slipbuff")
 	end
 end
 
@@ -132,6 +147,38 @@ local function createSlip(name)
 	end
 	return Prefab(name, fn, assets)
 end
+
+local function makeBuff(name, attachedfn, detachedfn, duration, priority, prefabs)
+	local function fn()
+		local inst = CreateEntity()
+		
+		if not TheWorld.ismastersim then
+			inst:DoTaskInTime(0, inst.Remove)
+			return inst
+		end
+		inst.entity:AddTransform()
+
+        --[[Non-networked entity]]
+        --inst.entity:SetCanSleep(false)
+        inst.entity:Hide()
+        inst.persists = false
+
+        inst:AddTag("CLASSIFIED")
+
+        inst:AddComponent("debuff")
+        inst.components.debuff:SetAttachedFn(attachedfn)
+        inst.components.debuff:SetDetachedFn(detachedfn)
+        inst.components.debuff.keepondespawn = true
+
+        inst:AddComponent("timer")
+        inst.components.timer:StartTimer("buffover", duration)
+        inst:ListenForEvent("timerdone", onTimerDone)
+
+        return inst
+	end
+	return Prefab(name, fn, nil, prefabs)
+end
+
 STRINGS.NAMES.FOUR_D_SLIP  = "4D Slip"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.FOUR_D_SLIP = "I don't even know what that could be."
 STRINGS.CHARACTERS.WX78.DESCRIBE.FOUR_D_SLIP = "ERROR. UNDEFINED OBJECT"
@@ -143,5 +190,6 @@ STRINGS.CHARACTERS.WX78.DESCRIBE.FOUR_D_SLIP_O = "ERROR. UNDEFINED OBJECT"
 STRINGS.CHARACTERS.GRAMNINTEN.DESCRIBE.FOUR_D_SLIP_O = "It gets me out of trouble in a snap!"
 
 return createSlip("four_d_slip"),
-	   createSlip("four_d_slip_o")
+	   createSlip("four_d_slip_o"),
+	   makeBuff("slipbuff", onattached, ondetached, 30, 1)
 
