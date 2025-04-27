@@ -5,7 +5,7 @@ local assets =
 	Asset("ANIM", "anim/ground_powershield_ninten.zip"),
 	Asset("ANIM", "anim/swap_powershield_ninten.zip"),
 	Asset("ANIM", "anim/swap_speed_up_ninten.zip"),
-    Asset("ANIM", "anim/ground_speed_up.zip"),
+    Asset("ANIM", "anim/ground_speed_up_ninten.zip"),
 }
 
 local shieldLines = {

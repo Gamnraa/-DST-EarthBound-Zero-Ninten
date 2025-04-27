@@ -10,7 +10,7 @@ local function fn()
     inst.entity:AddNetwork()
 	inst.entity:AddSoundEmitter()
 	inst.entity:AddAnimState()
-	inst.AnimState:SetBank("speed_up_fx")
+	inst.AnimState:SetBank("offense_up_fx")
     inst.AnimState:SetBuild("speed_up_fx")
 	inst:DoTaskInTime(0, function() inst.SoundEmitter:PlaySound("psisfx/psisfx/offenseup") end)
 	inst.AnimState:PlayAnimation("anim")
@@ -22,6 +22,8 @@ local function fn()
     if not TheWorld.ismastersim then
         return inst
     end
+
+    inst:DoTaskInTime(3, inst.Remove)
 	
     return inst
 end
