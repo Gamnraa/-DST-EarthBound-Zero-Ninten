@@ -24,6 +24,7 @@ luac.out
 *.lo
 *.def
 *.exp
+*.log
 
 # Shared objects (inc. Windows DLLs)
 *.dll
@@ -48,3 +49,6 @@ luac.out
 *.fev
 *.fsb
 *.txt
+*.fobj
+*.fdp
+*.fdp.bak
