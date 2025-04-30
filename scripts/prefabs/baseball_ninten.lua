@@ -1,7 +1,7 @@
 local assets =
 {
-    Asset("ANIM", "anim/boomerang.zip"),
-    Asset("ANIM", "anim/swap_boomerang.zip"),
+    Asset("ANIM", "anim/ground_baseball_ninten.zip"),
+    Asset("ANIM", "anim/swap_baseball_ninten.zip"),
 }
 
 local function OnFinished(inst)
@@ -13,24 +13,27 @@ local function OnEquip(inst, owner)
     local skin_build = inst:GetSkinBuild()
     if skin_build ~= nil then
         owner:PushEvent("equipskinneditem", inst:GetSkinName())
-        owner.AnimState:OverrideItemSkinSymbol("swap_object", skin_build, "swap_boomerang", inst.GUID, "swap_boomerang")
+        owner.AnimState:OverrideItemSkinSymbol("swap_object", skin_build, "swap_object", inst.GUID, "swap_baseball_ninten")
     else
-        owner.AnimState:OverrideSymbol("swap_object", "swap_boomerang", "swap_boomerang")
+        owner.AnimState:OverrideSymbol("swap_object", "swap_baseball_ninten", "swap_object")
     end
     owner.AnimState:Show("ARM_carry")
     owner.AnimState:Hide("ARM_normal")
-end
 
-local AutoCatchTask = nil
+    if owner.prefab == "gramninten" then
+        inst.components.projectile:SetSpeed(30)
+    end
+end
 
 local function OnDropped(inst)
     inst.AnimState:PlayAnimation("idle")
     inst.components.inventoryitem.pushlandedevents = true
     inst:PushEvent("on_landed")
-	if AutoCatchTask then 
-		AutoCatchTask:Cancel()
-		AutoCatchTask = nil
+	if inst.AutoCatchTask then 
+		inst.AutoCatchTask:Cancel()
+		inst.AutoCatchTask = nil
 	end
+    inst.components.projectile:SetSpeed(20)
 end
 
 local function OnUnequip(inst, owner)
@@ -58,8 +61,8 @@ local function OnCaught(inst, catcher)
             catcher.components.inventory:GiveItem(inst)
         end
         catcher:PushEvent("catch")
-		AutoCatchTask:Cancel()
-		AutoCatchTask = nil
+		inst.AutoCatchTask:Cancel()
+		inst.AutoCatchTask = nil
     end
 end
 
@@ -95,7 +98,7 @@ local function ReturnToOwner(inst, owner)
 		inst.components.projectile:SetSpeed(20)
 		
 		if owner.prefab == "gramninten" then
-			AutoCatchTask = owner:DoPeriodicTask(.05, function() 
+			inst.AutoCatchTask = owner:DoPeriodicTask(.05, function() 
 				local range = owner:GetPhysicsRadius(0) + inst.components.projectile.hitdist + 1
 				if distsq(inst:GetPosition(), owner:GetPosition()) < range * range then
 					owner.sg:GoToState("catch_pre")
@@ -147,10 +150,10 @@ local function fn()
     MakeInventoryPhysics(inst)
     RemovePhysicsColliders(inst)
 
-    inst.AnimState:SetBank("boomerang")
-    inst.AnimState:SetBuild("boomerang")
+    inst.AnimState:SetBank("ground_baseball_ninten")
+    inst.AnimState:SetBuild("ground_baseball_ninten")
     inst.AnimState:PlayAnimation("idle")
-    inst.AnimState:SetRayTestOnBB(true)
+    --inst.AnimState:SetRayTestOnBB(true)
 
     inst:AddTag("thrown")
 
@@ -160,7 +163,7 @@ local function fn()
     --projectile (from projectile component) added to pristine state for optimization
     inst:AddTag("projectile")
 
-    local swap_data = {sym_build = "swap_boomerang"}
+    local swap_data = {sym_build = "swap_baseball_ninten"}
     MakeInventoryFloatable(inst, "small", 0.18, {0.8, 0.9, 0.8}, true, -6, swap_data)
 
     inst.entity:SetPristine()
@@ -197,6 +200,8 @@ local function fn()
     inst:AddComponent("equippable")
     inst.components.equippable:SetOnEquip(OnEquip)
     inst.components.equippable:SetOnUnequip(OnUnequip)
+
+    inst.AutoCatchTask = nil
 
     MakeHauntableLaunch(inst)
 
