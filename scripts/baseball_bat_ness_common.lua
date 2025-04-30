@@ -35,13 +35,7 @@ local CommonHandlers = GLOBAL.CommonHandlers
 		inst.sg:SetTimeout(16 * FRAMES)
 		
 		if target then
-			if inst.prefab == "gramness" then
-				inst.components.talker:Say("Batter up!")
-			elseif inst.prefab == "gramninten" then
-				inst.components.talker:Say("Get ready for another homerun!")
-			else
-				inst.components.combat:BattleCry()
-			end
+			inst.components.combat:BattleCry()
 				
 			if target:IsValid() then
 				inst:FacePoint(target:GetPosition())
@@ -172,7 +166,7 @@ end)
 AddStategraphPostInit("wilson_client", function(sg)
 	local oldattackhandler = sg.actionhandlers[GLOBAL.ACTIONS.ATTACK]
 	sg.actionhandlers[GLOBAL.ACTIONS.ATTACK] = GLOBAL.ActionHandler(GLOBAL.ACTIONS.ATTACK, function(inst, action)
-		--inst.sg.mem.localchainattack = not action.forced or nil
+		inst.sg.mem.localchainattack = not action.forced or nil
         if not (inst.sg:HasStateTag("attack") and action.target == inst.sg.statemem.attacktarget or GLOBAL.IsEntityDead(inst)) then
             local equip = inst.replica.inventory:GetEquippedItem(GLOBAL.EQUIPSLOTS.HANDS)
 			if equip and equip.prefab == "baseball_bat_ness" and inst.replica.rider and not inst.replica.rider:IsRiding() then
@@ -331,7 +325,9 @@ local knockback = State{
     }
 	
 local function BaseballKnockbackEvent(inst, data)
-	inst.sg:GoToState("baseballknockback", {knocker = data.knocker, radius = data.radius, strengthmult = data.strengthmult})
+	if not inst:HasTag("paralyzed") then
+		inst.sg:GoToState("baseballknockback", {knocker = data.knocker, radius = data.radius, strengthmult = data.strengthmult})
+	end
 end
 
 function MassAddStategraphEvent(entityStates, event, eventFunction)

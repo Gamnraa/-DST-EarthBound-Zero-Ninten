@@ -107,6 +107,7 @@ local function fn()
 
     --weapon (from weapon component) added to pristine state for optimization
     inst:AddTag("weapon")
+	inst:AddTag("nessbat")
 
     MakeInventoryFloatable(inst, "med", 0.1, {0.7, 0.5, 0.7})
 
@@ -146,5 +147,21 @@ end
 STRINGS.NAMES.BASEBALL_BAT_NESS = "Baseball Bat"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.BASEBALL_BAT_NESS = "Well a weapon is a weapon."
 STRINGS.CHARACTERS.WX78.DESCRIBE.BASEBALL_BAT_NESS = "I HAVE NO USE FOR HUMAN RECREATION INSTRUMENTS"
+STRINGS.CHARACTERS.WILLOW.DESCRIBE.BASEBALL_BAT_NESS = "You think he'd mind if I burned this…"
+STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.BASEBALL_BAT_NESS = "Ah, is stick for hitting."
+STRINGS.CHARACTERS.WENDY.DESCRIBE.BASEBALL_BAT_NESS = "Sports were more of Abigail's thing."
+STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.BASEBALL_BAT_NESS = "A humble piece of sporting equipment."
+STRINGS.CHARACTERS.WOODIE.DESCRIBE.BASEBALL_BAT_NESS = "How about you make a hockey stick next time, eh?"
+STRINGS.CHARACTERS.WAXWELL.DESCRIBE.BASEBALL_BAT_NESS = "A boringly barbaric weapon."
+STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.BASEBALL_BAT_NESS = "An honorable weapon!" 
+STRINGS.CHARACTERS.WEBBER.DESCRIBE.BASEBALL_BAT_NESS = "Ooh, ooh, does this mean we're playing baseball!?"
+STRINGS.CHARACTERS.WINONA.DESCRIBE.BASEBALL_BAT_NESS = "This is some pretty good craftsmanship kid."
+STRINGS.CHARACTERS.WARLY.DESCRIBE.BASEBALL_BAT_NESS = "Maybe I'll make concessions for the next game."
+STRINGS.CHARACTERS.WORTOX.DESCRIBE.BASEBALL_BAT_NESS = "A baseball bat to pair with a red hat."
+STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.BASEBALL_BAT_NESS = "Wacker made from friends."
+STRINGS.CHARACTERS.WURT.DESCRIBE.BASEBALL_BAT_NESS = "Clobbery."
+STRINGS.CHARACTERS.WALTER.DESCRIBE.BASEBALL_BAT_NESS = "I'm not great at baseball…or most sports…"
+STRINGS.CHARACTERS.WANDA.DESCRIBE.BASEBALL_BAT_NESS = "So this is the weapon of a fellow time traveler, not my first choice..."
+
 
 return Prefab("baseball_bat_ness", fn, assets)
