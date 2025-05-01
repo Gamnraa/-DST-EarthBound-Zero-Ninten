@@ -12,7 +12,7 @@ PrefabFiles = {
 	"counter_fx",
 	"speed_up_fx",
 	"baseball_bat_ness",
-	--"baseball_ninten", --shhhhh
+	"baseball_ninten", 
 }
 
 Assets = {
@@ -97,6 +97,9 @@ Assets = {
 
 	Asset( "IMAGE", "images/inventoryimages/speed_up_ninten.tex" ),
 	Asset( "ATLAS", "images/inventoryimages/speed_up_ninten.xml" ),
+
+	Asset( "IMAGE", "images/inventoryimages/baseball_ninten.tex" ),
+	Asset( "ATLAS", "images/inventoryimages/baseball_ninten.xml" ),
 
 	
 	Asset("SOUNDPACKAGE", "sound/gramninten.fev"),
@@ -225,6 +228,7 @@ AddModCharacter("gramninten", "MALE", skin_modes)
 
 RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/nintens_coat.xml"), "nintens_coat.tex")
 RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/baseball_cap_ninten.xml"), "baseball_cap_ninten.tex")
+RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/baseball_ninten.xml"), "baseball_ninten.tex")
 
 
 --Inhaler stuff
@@ -364,6 +368,23 @@ AddCharacterRecipe("speed_up_ninten",
 		numtogive = 1,
 		atlas = "images/inventoryimages/speed_up_ninten.xml",
 		image = "speed_up_ninten.tex"
+	},
+	{
+		"MAGIC",
+	})
+STRINGS.RECIPE_DESC.SPEED_UP_NINTEN = "Enhance your speed."
+
+AddCharacterRecipe("baseball_ninten",
+	{Ingredient("pigskin", 1),
+	 Ingredient("gold", 1),
+	 Ingredient("nightmarefuel", 2)},
+	GLOBAL.TECH.MAGIC_TWO,
+	{
+		product = "baseball_ninten",
+		builder_tag = "nintencraft",
+		numtogive = 1,
+		atlas = "images/inventoryimages/baseball_ninten.xml",
+		image = "baseball_ninten.tex"
 	},
 	{
 		"MAGIC",
