@@ -155,6 +155,46 @@ local function NintenOnEquip (inst, data)
 	end
 end
 
+
+local function nintenstatus(inst, viewer)
+    return (inst:HasTag("playerghost") and "GHOST")
+		or (inst.components.asthma.isAsthmaAttack and inst.components.health:GetPercentWithPenalty() > 0.5 and "ASTHMAATTACK")
+		or (inst.components.asthma.isAsthmaAttack and inst.components.health:GetPercentWithPenalty() < 0.5 and "ASTHMAATTACKDIRE")
+		or (inst.components.asthma.isAsthmaWarning and "ASTHMA")
+        or (inst.hasRevivedPlayer and "REVIVER")
+        or (inst.hasKilledPlayer and "MURDERER")
+        or (inst.hasAttackedPlayer and "ATTACKER")
+        or (inst.hasStartedFire and "FIRESTARTER")
+        or nil
+end
+
+local function battlecrystring(combat, target)
+	local weapon = combat.inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HANDS)
+	local body = combat.inst.components.inventory:GetEquippedItem(EQUIPSLOTS.BODY)
+	local head = combat.inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD)
+	local pos = combat.inst:GetPosition()
+	local spiders = TheSim:FindEntities(pos.x, 0, pos.z, 15, {"spider"}, {"_inlimbo"})
+
+    return target ~= nil
+        and target:IsValid()
+        and GetString(
+            combat.inst,
+            "BATTLECRY",
+			(GetTableSize(spiders) > 5 and "TOO_MANY_SPIDERS") or
+			(target:HasTag("paralyzed") and "TARGET_PARALYZED") or
+			(combat.inst.components.sanity.custom_rate_fn(combat.inst) >= .5 and math.random(100) < 50 and "DAPPER") or
+			(weapon and weapon:HasTag("nessbat") and  (
+				(GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS[target.prefab] and GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS[target.prefab] > 1.5 and "SWING_BAT_SMALL_TARGET") or
+				(GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS[target.prefab] and GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS[target.prefab] <= 1.5 and "SWING_BAT_BIG_TARGET") or
+				"SWING_BAT_GENERIC")
+			) or
+            (target:HasTag("prey") and not target:HasTag("hostile") and "PREY") or
+            (string.find(target.prefab, "pig") ~= nil and target:HasTag("pig") and not target:HasTag("werepig") and "PIG") or
+            target.prefab
+        )
+        or nil
+end
+
 -- This initializes for both the server and client. Tags can be added here.
 local common_postinit = function(inst) 
 	-- Minimap icon
@@ -192,6 +232,9 @@ local master_postinit = function(inst)
 	
 	inst:ListenForEvent("equip", NintenOnEquip)
 	inst:ListenForEvent("killed", OnKill)
+
+	inst.components.inspectable.getstatus = nintenstatus
+	inst.components.combat.GetBattleCryString = battlecrystring
 
 	--inst:ListenForEvent("onskinschanged", function() OnBecomeKen(inst) end)
 	
