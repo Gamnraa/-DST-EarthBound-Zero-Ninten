@@ -747,7 +747,7 @@ return {
 		"Nothing's biting...",
 		"I'm bored.",
 		"I hate fishing.",
-
+    },
 	ANNOUNCE_WEIGHT = "Weight: {weight}",
 	ANNOUNCE_WEIGHT_HEAVY  = "Weight: {weight}\nI'm a fishing champ!",
 
@@ -2103,8 +2103,7 @@ return {
 			COLD = "Oh, do you need warmth?",
 			COMFY = "There you go, my man!",
 		},
-		LAVAE_TOOTH = "That's your tooth?",	  
-
+		LAVAE_TOOTH = "That's your tooth?",
 		DRAGONFRUIT = "What kind of fruit is this?",
 		DRAGONFRUIT_COOKED = "Huh.",
 		DRAGONFRUIT_SEEDS = "I can make more of that fruit with this.",
@@ -2956,8 +2955,7 @@ return {
         DRAGONHEADHAT = "Cool!",
         DRAGONBODYHAT = "Being the body is so lame.",
         DRAGONTAILHAT = "At least I'm not in the middle, I guess.",								
-        PERDSHRINE =													 
-				  
+        PERDSHRINE =													  
         {
             GENERIC = "It needs an offering.",
             EMPTY = "What do you want?",
@@ -3046,9 +3044,7 @@ return {
             BURNT = "I may have overdone it.",
 							 
         },
-        YOTC_CARRAT_GYM_REACTION = 
-														 
-					   
+        YOTC_CARRAT_GYM_REACTION =  
         {
             GENERIC = "There's more training to do!",
             RAT = "Think fast!",
@@ -3097,13 +3093,6 @@ return {
 		TRUNK_SUMMER = "It's a trunk. Why I have it, I'm not sure.",
 		TRUNK_WINTER = "It feels so rough.",
 		TUMBLEWEED = "Reminds me of cowboys.",
-		
-		
-		
-		
-		
-		
-		
 		TURKEYDINNER = "Thanksgiving already?!",
 		TWIGS = "It's just a stick.",
 		UMBRELLA = "It'll keep me dry.",
@@ -3744,7 +3733,7 @@ return {
 
 
 
-	--- 5C DLC ------------------------------------------------------------------------------------------------
+	 --- 5C DLC ------------------------------------------------------------------------------------------------
 
         ENCRUSTEDBOAT = "I don't know how I did it, but it floats.",
         BABYOX = "Hey little guy.",
@@ -3765,7 +3754,7 @@ return {
         QUACKENBEAK = "Nobody messes with Ninten.",
         QUACKERINGRAM = "I'll mess you up good if you mess with me!",
     
-    --- DLC ------------------------------------------------------------------------------------------------    
+     --- DLC ------------------------------------------------------------------------------------------------    
 
         CAVIAR = "Mmmm, I'm never one to say no to seafood, but...",
         CORMORANT = "Sup, bird?",
@@ -5166,10 +5155,7 @@ return {
 		ROSEGLASSESHAT =
         {
             GENERIC = "They're something, alright",
-            MISSINGSKILL = "only_used_by_winona",
-											
-															  
-														
+            MISSINGSKILL = "only_used_by_winona",											
         },
 		CHARLIERESIDUE = "only_used_by_winona",
 		CHARLIEROSE = "only_used_by_winona",
@@ -6997,20 +6983,7 @@ return {
 
         -- Meta 5
         GHOSTLYELIXIR_LUNAR = "Let's not mess with that.",
-        GHOSTLYELIXIR_SHADOW = "Let's not mess with that.",
-													 
-											 
-															   
-											 
-									
-										
-												   
-													   
-
-															   
-										   
-											 
-
+        GHOSTLYELIXIR_SHADOW = "Let's not mess with that.",						
 		SLINGSHOTMODKIT = "What's this about?",
 		SLINGSHOT_BAND_PIGSKIN = "Give it to 'em!",
 		SLINGSHOT_BAND_TENTACLE = "Give it to 'em!",
