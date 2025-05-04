@@ -72,9 +72,9 @@ local function Rehit(inst, owner, target)
 	newSpeed = math.random(newSpeed - 4, newSpeed - 1)
 	inst.components.projectile:SetSpeed(newSpeed)
 	inst.Physics:SetMotorVel(0, newSpeed, 0)
-	inst:DoTaskInTime(.16, function()
+	inst:DoTaskInTime(.22, function()
 		inst.Physics:SetMotorVel(0, -newSpeed, 0)
-		inst:DoTaskInTime(.12, function()
+		inst:DoTaskInTime(.18, function()
             local pos = inst:GetPosition()
             inst.Transform:SetPosition(pos.x, 0, pos.z)
 			inst.components.projectile:Throw(owner, target) 
@@ -101,8 +101,8 @@ local function ReturnToOwner(inst, owner)
 		inst.components.projectile:SetSpeed(20)
 		
 		if owner.prefab == "gramninten" then
-			inst.AutoCatchTask = owner:DoPeriodicTask(.05, function() 
-				local range = owner:GetPhysicsRadius(0) + inst.components.projectile.hitdist + 2
+			inst.AutoCatchTask = owner:DoPeriodicTask(0, function() 
+				local range = owner:GetPhysicsRadius(0) + inst.components.projectile.hitdist + 1
 				if distsq(inst:GetPosition(), owner:GetPosition()) < range * range then
 					owner.sg:GoToState("catch_pre")
 				end
