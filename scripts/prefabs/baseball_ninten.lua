@@ -19,6 +19,7 @@ local function OnEquip(inst, owner)
     end
     owner.AnimState:Show("ARM_carry")
     owner.AnimState:Hide("ARM_normal")
+    owner.AnimState:HideSymbol("ARM_carry_001")
 
     if owner.prefab == "gramninten" then
         inst.components.projectile:SetSpeed(30)
@@ -71,9 +72,11 @@ local function Rehit(inst, owner, target)
 	newSpeed = math.random(newSpeed - 4, newSpeed - 1)
 	inst.components.projectile:SetSpeed(newSpeed)
 	inst.Physics:SetMotorVel(0, newSpeed, 0)
-	inst:DoTaskInTime(.15, function()
+	inst:DoTaskInTime(.16, function()
 		inst.Physics:SetMotorVel(0, -newSpeed, 0)
-		inst:DoTaskInTime(.15, function()
+		inst:DoTaskInTime(.12, function()
+            local pos = inst:GetPosition()
+            inst.Transform:SetPosition(pos.x, 0, pos.z)
 			inst.components.projectile:Throw(owner, target) 
 		end)
 	end)
@@ -99,7 +102,7 @@ local function ReturnToOwner(inst, owner)
 		
 		if owner.prefab == "gramninten" then
 			inst.AutoCatchTask = owner:DoPeriodicTask(.05, function() 
-				local range = owner:GetPhysicsRadius(0) + inst.components.projectile.hitdist + 1
+				local range = owner:GetPhysicsRadius(0) + inst.components.projectile.hitdist + 2
 				if distsq(inst:GetPosition(), owner:GetPosition()) < range * range then
 					owner.sg:GoToState("catch_pre")
 				end
