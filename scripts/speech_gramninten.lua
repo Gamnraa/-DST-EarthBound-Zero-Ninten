@@ -7018,8 +7018,7 @@ return {
         -- Deck of Cards
         DECK_OF_CARDS = "Go Fish, anyone?",
         PLAYING_CARD = "A playing card.",
-        BALATRO_MACHINE = "Finally, some actual entertainment out here!",		
-																   
+        BALATRO_MACHINE = "Finally, some actual entertainment out here!",										   
     },
 
     DESCRIBE_GENERIC = "Er, what's that?",
