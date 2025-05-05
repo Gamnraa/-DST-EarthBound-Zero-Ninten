@@ -376,8 +376,8 @@ STRINGS.RECIPE_DESC.SPEED_UP_NINTEN = "Enhance your speed."
 
 AddCharacterRecipe("baseball_ninten",
 	{Ingredient("pigskin", 1),
-	 Ingredient("gold", 1),
-	 Ingredient("nightmarefuel", 2)},
+	 Ingredient("goldnugget", 3),
+	 Ingredient("nightmarefuel", 3)},
 	GLOBAL.TECH.MAGIC_TWO,
 	{
 		product = "baseball_ninten",
