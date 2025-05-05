@@ -24,7 +24,7 @@ STRINGS.CHARACTERS.WURT.DESCRIBE.INHALER_NINTEN = "Nin-ten makes funny noises wi
 STRINGS.CHARACTERS.WALTER.DESCRIBE.INHALER_NINTEN = "Hmmm, my handbook says an asthmatic person should never not be without their inhaler."
 STRINGS.CHARACTERS.WANDA.DESCRIBE.INHALER_NINTEN = "Timelines where he loses this never end well."
 
-
+STRINGS.NAMES.BASEBALL_NINTEN = "Baseball"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.BASEBALL_NINTEN = "Science says It's very aerodynamic."
 STRINGS.CHARACTERS.WILLOW.DESCRIBE.BASEBALL_NINTEN = "Dosen't hurt much but it sure is annoying!"
 STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.BASEBALL_NINTEN = "Watch, Wolfgang will throw far!"
