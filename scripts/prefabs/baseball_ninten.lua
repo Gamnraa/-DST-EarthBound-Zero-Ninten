@@ -5,7 +5,7 @@ local assets =
 }
 
 local function OnFinished(inst)
-    inst.AnimState:PlayAnimation("used")
+    --inst.AnimState:PlayAnimation("used")
     inst:ListenForEvent("animover", inst.Remove)
 end
 
@@ -21,8 +21,11 @@ local function OnEquip(inst, owner)
     owner.AnimState:Hide("ARM_normal")
     owner.AnimState:HideSymbol("ARM_carry_001")
 
+
+    inst.components.projectile:SetSpeed(20)
+
     if owner.prefab == "gramninten" then
-        inst.components.projectile:SetSpeed(30)
+        inst:DoTaskInTime(0, function() inst.components.projectile:SetSpeed(math.random(22, 35)) end)
     end
 end
 
@@ -34,7 +37,6 @@ local function OnDropped(inst)
 		inst.AutoCatchTask:Cancel()
 		inst.AutoCatchTask = nil
 	end
-    inst.components.projectile:SetSpeed(20)
 end
 
 local function OnUnequip(inst, owner)
@@ -50,6 +52,13 @@ local function OnThrown(inst, owner, target)
     if target ~= owner then
         owner.SoundEmitter:PlaySound("dontstarve/wilson/boomerang_throw")
     end
+
+    print(inst.components.projectile.speed)
+
+    if owner.prefab == "gramninten" and inst.components.projectile.speed > 28 then
+        owner.components.talker:Say(GetString(owner, "ANNOUNCE_THROW_FAST_BALL"))
+    end
+
     inst.AnimState:PlayAnimation("spin_loop", true)
     inst.components.inventoryitem.pushlandedevents = false
 end
@@ -69,7 +78,7 @@ end
 
 local function Rehit(inst, owner, target)
 	local newSpeed = inst.components.projectile.speed
-	newSpeed = math.random(newSpeed - 4, newSpeed - 1)
+	newSpeed = math.random(newSpeed - 5, newSpeed - 1)
 	inst.components.projectile:SetSpeed(newSpeed)
 	inst.Physics:SetMotorVel(0, newSpeed, 0)
 	inst:DoTaskInTime(.22, function()
@@ -89,16 +98,16 @@ local function ReturnToOwner(inst, owner)
 		inst.components.projectile.speed = inst.components.projectile.speed + 1
 		inst.Physics:SetMotorVel(inst.components.projectile.speed, 0, 0)
 		if inst.components.projectile.speed < 18 then
-			inst:DoTaskInTime(40, Accel(inst))
+			inst:DoTaskInTime(3, Accel(inst))
 		end
 	end
 	
     if owner ~= nil and not (inst.components.finiteuses ~= nil and inst.components.finiteuses:GetUses() < 1) then
         owner.SoundEmitter:PlaySound("dontstarve/wilson/boomerang_return")
-		inst.components.projectile:SetSpeed(7)
-		--Accel(inst)
+		inst.components.projectile:SetSpeed(6)
+		Accel(inst)
         inst.components.projectile:Throw(owner, owner)
-		inst.components.projectile:SetSpeed(20)
+		--inst.components.projectile:SetSpeed(20)
 		
 		if owner.prefab == "gramninten" then
 			inst.AutoCatchTask = owner:DoPeriodicTask(0, function() 
@@ -189,6 +198,7 @@ local function fn()
     inst:AddComponent("inspectable")
 
     inst:AddComponent("projectile")
+    print("fn")
     inst.components.projectile:SetSpeed(20)
     inst.components.projectile:SetCanCatch(true)
     inst.components.projectile:SetOnThrownFn(OnThrown)

@@ -1,5 +1,12 @@
 local STRINGS = GLOBAL.STRINGS
 
+STRINGS.CHARACTERS.GRAMNINTEN.ANNOUNCE_THROW_FAST_BALL = {
+    "Oh yeah, that's a heater!",
+    "Try and catch that one, loser!",
+    "Eat this FAST BALL! ",
+}
+
+
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.INHALER_NINTEN = "Gives Ninten a fresh breath of air."
 STRINGS.CHARACTERS.WILLOW.DESCRIBE.INHALER_NINTEN = "He should probably take this back…"
 STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.INHALER_NINTEN = "I will be careful not to crush."
