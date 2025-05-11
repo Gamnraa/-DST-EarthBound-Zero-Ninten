@@ -98,7 +98,7 @@ local function ReturnToOwner(inst, owner)
 		inst.components.projectile.speed = inst.components.projectile.speed + 1
 		inst.Physics:SetMotorVel(inst.components.projectile.speed, 0, 0)
 		if inst.components.projectile.speed < 18 then
-			inst:DoTaskInTime(3, Accel(inst))
+			inst:DoTaskInTime(90, Accel(inst))
 		end
 	end
 	
