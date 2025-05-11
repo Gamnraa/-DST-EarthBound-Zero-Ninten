@@ -182,7 +182,7 @@ local function battlecrystring(combat, target)
             "BATTLECRY",
 			(GetTableSize(spiders) > 5 and "TOO_MANY_SPIDERS") or
 			(target:HasTag("paralyzed") and "TARGET_PARALYZED") or
-			(combat.inst.components.sanity.custom_rate_fn(combat.inst) >= .5 and math.random(100) < 50 and "DAPPER") or
+			(combat.inst.components.sanity.custom_rate_fn(combat.inst) >= .05 and math.random(100) < 50 and "DAPPER") or
 			(weapon and weapon:HasTag("nessbat") and  (
 				(GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS[target.prefab] and GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS[target.prefab] > 1.5 and "SWING_BAT_SMALL_TARGET") or
 				(GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS[target.prefab] and GRAMNESS_BASEBALL_KNOCKBACK_WEIGHTS[target.prefab] <= 1.5 and "SWING_BAT_BIG_TARGET") or
@@ -192,7 +192,7 @@ local function battlecrystring(combat, target)
             (string.find(target.prefab, "pig") ~= nil and target:HasTag("pig") and not target:HasTag("werepig") and "PIG") or
             target.prefab
         )
-        or nil
+        or "GENERIC"
 end
 
 -- This initializes for both the server and client. Tags can be added here.

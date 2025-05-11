@@ -1015,6 +1015,11 @@ return {
 			"I'm much stronger than I look pal!",
 			"There's nothing I can't smack some sense into!"
 		},
+        DAPPER = {
+            "You're messing with my style!",
+            "Hey, watch the clothes!",
+            "Gotta look my best when I beat you!"
+        }
 	},
 	COMBAT_QUIT =
 	{
