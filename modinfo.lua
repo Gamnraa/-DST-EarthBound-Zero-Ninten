@@ -146,6 +146,17 @@ configuration_options = {
 			{description = "Off", data = true}
 		},
 		default = false,
+	},
+	{
+		name = "GRAMNINTEN_ASTHMA_OVERLAY",
+		label = "Toggle Asthma Overlay",
+		hover = "Toggle if Ninten's risk of an asthma attack will display",
+		options =
+		{
+			{description = "On (default)", data = true},
+			{description = "Off", data = false}
+		},
+		default = false,
 	}
 			
 }
