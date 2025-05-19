@@ -6413,7 +6413,7 @@ return {
         CANNONBALL_ROCK_ITEM = "I'll use it for a cannon.",
 
         OCEAN_TRAWLER = {
-            GENERIC = "I'll caught lots of seafood now.",
+            GENERIC = "I'll catch lots of seafood now.",
             LOWERED = "Hopefully I found something.",
             CAUGHT = "Gotcha!",
             ESCAPED = "My food!",
@@ -6441,7 +6441,7 @@ return {
         PRIME_MATE = "Must be their leader.",
 		LIGHTCRAB = "Whoa!",
         CUTLESS = "It's the thought that counts.",
-        CURSED_MONKEY_TOKEN = "What's thins?",
+        CURSED_MONKEY_TOKEN = "What's this?",
         OAR_MONKEY = "One of these days I'll get my hands an actual bat.",
         BANANABUSH = "I thought they grew on trees.",
         DUG_BANANABUSH = "Where to put you?",
