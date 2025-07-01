@@ -238,6 +238,8 @@ local master_postinit = function(inst)
 
 	--inst:ListenForEvent("onskinschanged", function() OnBecomeKen(inst) end)
 	
+	inst.customidleanim = "ninten_idle"
+	
 end
 
 return MakePlayerCharacter("gramninten", prefabs, assets, common_postinit, master_postinit, start_inv)

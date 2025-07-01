@@ -110,6 +110,7 @@ Assets = {
 	Asset("SOUND", "sound/psisfx.fsb"),
 	
 	Asset("ANIM", "anim/anim_gramninten.zip"),
+	Asset("ANIM", "anim/animninten.zip")
 }
 
 AddMinimapAtlas("images/map_icons/gramninten.xml")
@@ -463,7 +464,6 @@ AddComponentPostInit("talker", function(talker)
 	talker.Say = function(self, script, ...)
 		if not self.inst.components.skinner then return old_say(self, script, ...) end
 		
-		print(script)
 		if GLOBAL.UNIQUE_SKIN_DIALOGUE[self.inst.prefab] and GLOBAL.UNIQUE_SKIN_DIALOGUE[self.inst.prefab][self.inst.components.skinner.skin_name] then
 			script = GLOBAL.UNIQUE_SKIN_DIALOGUE[self.inst.prefab][self.inst.components.skinner.skin_name][script] or script
 		end
