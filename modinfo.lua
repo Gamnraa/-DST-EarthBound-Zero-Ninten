@@ -2,7 +2,7 @@
 name = "(DEV) EarthBound Zero: Ninten"
 description = "Adds Ninten from EarthBound Beginnings to the game."
 author = "Lucas & Claus"
-version = "0.4.0" -- This is the version of the template. Change it to your own number.
+version = "0.4.2" -- This is the version of the template. Change it to your own number.
 
 -- This is the URL name of the mod's thread on the forum; the part after the ? and before the first & in the url
 forumthread = "/files/file/950-extended-sample-character/"
@@ -26,7 +26,7 @@ icon = "modicon.tex"
 
 -- The mod's tags displayed on the server list
 server_filter_tags = {
-"character",
+"character", "earthbound"
 }
 
 configuration_options = {

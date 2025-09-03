@@ -113,6 +113,22 @@ Assets = {
 	Asset("ANIM", "anim/animninten.zip")
 }
 
+ModdedCurios = {
+	ms_ninten_batterbg = {
+		type = "loading",
+		skin_tags = {"BATTER", "LOADING"},
+		rarity = "ModMade",
+		assets = {
+			Asset("ATLAS", "images/bg_loading_ms_ninten_batterbg.xml"),
+			Asset("IMAGE", "images/bg_loading_ms_ninten_batterbg.tex"),
+			
+			Asset("DYNAMIC_ANIM", "anim/dynamic/ms_ninten_batterbg.zip"),
+			Asset("PKGREF", "anim/dynamic/ms_ninten_batterbg.dyn")
+		},
+	},
+}
+
+
 AddMinimapAtlas("images/map_icons/gramninten.xml")
 
 local require = GLOBAL.require
@@ -174,6 +190,9 @@ STRINGS.SKIN_QUOTES.ms_gramninten_halloween = "\"All I need is a Chicago Typewri
 STRINGS.SKIN_NAMES.ms_baseball_cap_ninten_halloween = "Tattered Fedora"
 STRINGS.SKIN_DESCRIPTIONS.ms_baseball_cap_ninten_halloween = "Any drab getup isn't complete without its complimentary fedora."
 RegisterInventoryItemAtlas(GLOBAL.resolvefilepath("images/inventoryimages/ms_baseball_cap_ninten_halloween.xml"), "ms_baseball_cap_ninten_halloween.tex")
+
+STRINGS.SKIN_NAMES.ms_ninten_batterbg = "Ninten and his Baseball"
+STRINGS.SKIN_DESCRIPTIONS.ms_ninten_batterbg = "Another day of playing his favorite sport awaits..."
 
 
 GLOBAL.nintens_coat_init_fn = function(inst, build_name)
