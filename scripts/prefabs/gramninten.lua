@@ -158,8 +158,7 @@ end
 
 local function nintenstatus(inst, viewer)
     return (inst:HasTag("playerghost") and "GHOST")
-		or (inst.components.asthma.isAsthmaAttack and inst.components.health:GetPercentWithPenalty() > 0.5 and "ASTHMAATTACK")
-		or (inst.components.asthma.isAsthmaAttack and inst.components.health:GetPercentWithPenalty() < 0.5 and "ASTHMAATTACKDIRE")
+		or (inst.components.asthma.isAsthmaAttack and "ASTHMAATTACK")
 		or (inst.components.asthma.isAsthmaWarning and "ASTHMA")
         or (inst.hasRevivedPlayer and "REVIVER")
         or (inst.hasKilledPlayer and "MURDERER")

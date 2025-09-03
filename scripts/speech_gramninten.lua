@@ -11,10 +11,10 @@
 return {
 	ACTIONFAIL =
 	{
-		GENERIC =
-		{
-			ITEMMIMIC = "I'll get you for that one!",
-		},
+		GENERIC = {
+            ITEMMIMIC = "Yeah, yeah, very funny.",
+        }, 
+		
         APPRAISE = 
         {
             NOTNOW = "I'll bother them later.",
@@ -72,7 +72,17 @@ return {
 			LOCKED_GATE = "Locked.",
 			HOSTBUSY = "Hurry it up, will ya?",
             CARNIVAL_HOST_HERE = "Oh, there he is.",
-            NOCARNIVAL = "He's not gonna show up. Whatever.",						   
+            NOCARNIVAL = "He's not gonna show up. Whatever.",
+			EMPTY_CATCOONDEN = "No one's home.",
+			KITCOON_HIDEANDSEEK_NOT_ENOUGH_HIDERS = "Nah, it'd be too lame with just us.",
+			KITCOON_HIDEANDSEEK_NOT_ENOUGH_HIDING_SPOTS = "There's no good hiding spots around here.",
+			KITCOON_HIDEANDSEEK_ONE_GAME_PER_DAY = "I've had enough.", --Dw I will become extremely agnostic towards doing lunar new years the further I go
+			MANNEQUIN_EQUIPSWAPFAILED = "That doesn't go there.",
+            PILLOWFIGHT_NO_HANDPILLOW = "I need a pillow to fight with!",
+            NOTMYBERNIE = "I only collect stuffed penguins.",
+            NOTMERM = "Glorb glorb glorb, ehhhh, shut up!",
+            NOKELP = "only_used_by_wurt",
+            HASMERMLEADER = "only_used_by_wurt",
 		},
 		OPEN_CRAFTING =
 		{
@@ -222,6 +232,7 @@ return {
                 "OW, it bit me!",
             },
 			NO_HEAVY_LIFTING = "only_used_by_wanda",
+			FULL_OF_CURSES = "I know a trap when I see one.",			  
         },
         SLAUGHTER =
         {
@@ -969,7 +980,8 @@ return {
     ANNOUNCE_ELIXIR_BOOSTED = "I feel more fit than ever!",
     ANNOUNCE_ELIXIR_GHOSTVISION = "Whoa, this would have been real good in Spookane!",
     ANNOUNCE_ELIXIR_PLAYER_SPEED = "I get it, Speed Up's not enough.",															   
-    ANNOUNCE_ELIXIR_TOO_SUPER = "Now this is overkill!",	
+    ANNOUNCE_ELIXIR_TOO_SUPER = "Now this is overkill!",
+	ANNOUNCE_LUNARGUARDIAN_INCOMING = "Give it a rest, already...",				
 	BATTLECRY =
 	{
 		GENERIC = {
@@ -1083,7 +1095,12 @@ return {
 
         BERNIE_ACTIVE = "Poltergeist!",
         BERNIE_BIG = "Whoa, that's a big teddy bear!",
-
+		
+		BOOKSTATION =
+		{
+			GENERIC = "I'm tired just looking at it.",
+			BURNT = "Oh nooooo...",
+		},										  
         BOOK_BIRDS = "Birds, huh. Okay...",
         BOOK_TENTACLES = "If this was a comic, I'd be so down with it!",
         BOOK_GARDENING = "Reading is so boring. What is this? Gardening?! Yuck!",
@@ -2044,6 +2061,7 @@ return {
 		},
         GOGGLESHAT = "Goggles are in, I hear.",
         DESERTHAT = "Reminds me of something an aviator would wear.",
+		ANTLIONHAT = "It looks sorta funny, but honestly: I make it work.",																		 
 		DEVTOOL = "It smells of bacon!",
 		DEVTOOL_NODEV = "I'm not strong enough to wield it.",
 		DIRTPILE = "Hmmm, wonder what that is.",
@@ -5536,6 +5554,11 @@ return {
 		SLINGSHOTAMMO_MOONGLASS = "That'll leave a mark.",
 		SLINGSHOTAMMO_GELBLOB = "Gross, keep it off my clothes, will you?",
 		SLINGSHOTAMMO_SCRAPFEATHER = "Huh.",
+		SLINGSHOTAMMO_DREADSTONE = "You'll be feeling that in your nightmares!",
+        SLINGSHOTAMMO_GUNPOWDER = "Nowt that's cool.",
+        SLINGSHOTAMMO_LUNARPLANTHUSK = "So strange.",
+        SLINGSHOTAMMO_PUREBRILLIANCE = "Shots to be slinged.",
+        SLINGSHOTAMMO_HORRORFUEL = "Shots to be slinged.",
         PORTABLETENT = "I've been camping before. It was alright.",		  
         PORTABLETENT_ITEM = "Camping on the go.",
 
@@ -6187,6 +6210,8 @@ return {
         BIRD_MUTANT_SPITTER = "Weird.",
 
         WAGSTAFF_NPC = "Another mad scientist, just what I needed.",
+		WAGSTAFF_NPC_MUTATIONS = "I'm not your servant, gramps. Get it done on your own.",
+        WAGSTAFF_NPC_WAGPUNK = "This is last time, you hear me?!",							 											   
         ALTERGUARDIAN_CONTAINED = "So, what exactly are we using this energy for?",
 
         WAGSTAFF_TOOL_1 = "I don't even know what is. Whatever, just gotta get it back to the old man.",
@@ -6436,7 +6461,11 @@ return {
         DOCK_KIT = "About time we got a dock.",
         DOCK_WOODPOSTS_ITEM = "Yeah, supports seemed important.",
 
-        MONKEYHUT = "Tropical.",
+        MONKEYHUT = 
+		{	
+			GENERIC = "Tropical.",
+			BURNT = "Burnt.",
+		},
         POWDER_MONKEY = "Hands off my stuff!",
         PRIME_MATE = "Must be their leader.",
 		LIGHTCRAB = "Whoa!",
@@ -7024,6 +7053,54 @@ return {
         DECK_OF_CARDS = "Go Fish, anyone?",
         PLAYING_CARD = "A playing card.",
         BALATRO_MACHINE = "Finally, some actual entertainment out here!",										   
+		-- Rifts 5
+		GESTALT_CAGE =
+		{
+			GENERIC = "More busy work, great.",
+			FILLED = "Pipe down, I'm not excited about this either.",
+		},
+		WAGBOSS_ROBOT_SECRET = "Just what are you hiding?",
+        WAGBOSS_ROBOT = "Is this like EVE?",
+        WAGBOSS_ROBOT_POSSESSED = "Not like EVE, not like EVE!!",
+		WAGBOSS_ROBOT_LEG = "Watch what you're trying to squash!",
+		ALTERGUARDIAN_PHASE1_LUNARRIFT = "You know what, I'm gonna say it: this place is so LAME.",
+		ALTERGUARDIAN_PHASE1_LUNARRIFT_GESTALT = "This one seems special.",
+        ALTERGUARDIAN_PHASE4_LUNARRIFT = "I think I've had enough fun. Anyways, anyone know the way out?",
+		WAGDRONE_ROLLING =
+        {
+            GENERIC = "Hey, watch it!",
+            INACTIVE = "Not doing anything now.",
+            DAMAGED = "Bunch of junk.",
+            FRIENDLY = "Pretty cool when they're not trying to kill you.",
+        },
+        WAGDRONE_FLYING =
+        {
+            GENERIC = "I'll smack you right out of the sky!",
+            INACTIVE = "Not doing anything now.",
+            DAMAGED = "It won't be doing much now!",
+        },
+		WAGDRONE_PARTS = "Robot junk.",
+		WAGDRONE_BEACON = "That beeping is gonna get on my nerves.",
+
+        WAGPUNK_WORKSTATION = "What a mess.",
+        WAGPUNK_LEVER = "I'm not pulling it, that's how you become culpable!",
+        WAGPUNK_FLOOR_KIT = "Yeah, yeah. whatever.",
+        WAGPUNK_CAGEWALL = "...I wonder what great grandpa would think.",
+
+		WAGSTAFF_ITEM_1 = "Not mine, not my problem.",
+		WAGSTAFF_ITEM_2 = "Don't care.",
+
+        HERMITCRAB_RELOCATION_KIT = "Getting a child to do your dirty work, hm?",
+
+        WANDERINGTRADER =
+        {
+            REVEALED = "Is the getup really necessary?",
+            GENERIC = "Huh?",
+        },
+
+        GESTALT_GUARD_EVOLVED = "What're you looking at.",
+        FLOTATIONCUSHION = "The ocean's dangerous, man.",
+        LUNAR_SEED = "I don't appreciate being around it.",									  
     },
 
     DESCRIBE_GENERIC = "Er, what's that?",
