@@ -185,7 +185,7 @@ local function fn()
     end
 
     inst:AddComponent("weapon")
-    inst.components.weapon:SetDamage(18)
+    inst.components.weapon:SetDamage(12)
     inst.components.weapon:SetRange(20, 21)
     -------
 
