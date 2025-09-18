@@ -6705,7 +6705,7 @@ return {
 
         BOAT_ANCIENT_ITEM = "Now this is a boat.",
         BOAT_ANCIENT_CONTAINER = "Now this is a cargo ship!",
-        WALKINGPLANK_ANCIENT = "Complimentary life jacket, right? Right?",
+        WALKINGPLANK_ANCIENT = "Walking plank, diving board, tomato tomato.",
 
         ANCIENTTREE_SEED = "I think it's a seed?",
 
@@ -6893,7 +6893,54 @@ return {
         DECK_OF_CARDS = "I got a few games I know. Easy to keep brats busy.",
         PLAYING_CARD = "A playing card.",
         BALATRO_MACHINE = "Looks tacky, but I guess it's better than nothing.",														 
-																   
+		-- Rifts 5
+		GESTALT_CAGE =
+		{
+			GENERIC = "This old man is getting on my last nerve.",
+			FILLED = "Pipe down, I'm not excited about this either.",
+		},
+		WAGBOSS_ROBOT_SECRET = "Keeping secrets? I'd expect as much from you.",
+        WAGBOSS_ROBOT = "Hoo boy.",
+        WAGBOSS_ROBOT_POSSESSED = "Hey, when I die: don't revive me this time.",
+		WAGBOSS_ROBOT_LEG = "You've got some nerve.",
+		ALTERGUARDIAN_PHASE1_LUNARRIFT = "You know what, I'm gonna say it: this place is so LAME.",
+		ALTERGUARDIAN_PHASE1_LUNARRIFT_GESTALT = "This one seems special.",
+        ALTERGUARDIAN_PHASE4_LUNARRIFT = "Alright Kenneth, let's blow this pop stand.",
+		WAGDRONE_ROLLING =
+        {
+            GENERIC = "Hey, watch it!",
+            INACTIVE = "Not doing anything now.",
+            DAMAGED = "Bunch of junk.",
+            FRIENDLY = "Pretty cool when they're not trying to kill you.",
+        },
+        WAGDRONE_FLYING =
+        {
+            GENERIC = "Come here and you'll regret it!",
+            INACTIVE = "Not doing anything now.",
+            DAMAGED = "It won't be doing much now!",
+        },
+		WAGDRONE_PARTS = "Robot junk.",
+		WAGDRONE_BEACON = "That beeping is gonna get on my nerves.",
+
+        WAGPUNK_WORKSTATION = "What a mess.",
+        WAGPUNK_LEVER = "Hey, the 'pull this if you're a loser' lever. Alright, Ninten, looks like you're the man for the job!",
+        WAGPUNK_FLOOR_KIT = "Yeah, yeah. whatever.",
+        WAGPUNK_CAGEWALL = "...I wonder what great grandpa would think.",
+
+		WAGSTAFF_ITEM_1 = "Not mine, not my problem.",
+		WAGSTAFF_ITEM_2 = "Don't care.",
+
+        HERMITCRAB_RELOCATION_KIT = "Getting a child to do your dirty work, hm?",
+
+        WANDERINGTRADER =
+        {
+            REVEALED = "Is the getup really necessary?",
+            GENERIC = "Huh?",
+        },
+
+        GESTALT_GUARD_EVOLVED = "What're you looking at.",
+        FLOTATIONCUSHION = "The ocean's dangerous, man.",
+        LUNAR_SEED = "I don't appreciate being around it.",																		   
     },
 
     DESCRIBE_GENERIC = "Er, what's that?",
